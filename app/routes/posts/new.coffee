@@ -1,5 +1,5 @@
 PostNewRoute = Ember.Route.extend
   model: ->
-    @store.findAll('post')
+    @store.find 'post'
 
 `export default PostNewRoute`

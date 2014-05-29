@@ -16,6 +16,8 @@ Post.reopenClass
       author:   'Tom Dale',
       created:  '2013-01-01T12:00:00',
       updated:  '2013-01-01T12:00:00',
+      comments: [1, 3],
+      tags:     [1, 2, 3],
       content:  'Tomster cant eat using knife and a fork because his hands are \
                  too small. We are looking for a way to feed him. Any ideas?'
     },
@@ -25,6 +27,8 @@ Post.reopenClass
       author:   'Tomster the Hamster',
       updated:  '2013-02-02T12:00:00',
       created:  '2013-02-02T12:00:00',
+      comments: [2, 4],
+      tags:     [4, 5, 6],
       content:  'I mean are totaly nuts? Is there any hope left for them? Should \
                  we hamsters try to save them?'
     }
