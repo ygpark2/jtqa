@@ -1,6 +1,7 @@
 {
   "name": "ember-app-kit",
   "dependencies": {
+    "bootstrap": "~3.1.1",
     "handlebars": "~1.1.2",
     "jquery": "~1.11.1",
     "qunit": "~1.12.0",
@@ -12,6 +13,7 @@
     "ic-ajax": "~1.0.4",
     "ember-testing-httpRespond": "~0.1.1",
     "loader.js": "git://github.com/stefanpenner/loader.js",
-    "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1"
+    "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1",
+    "bootstrap-sass-official": "~3.1.1"
   }
 }

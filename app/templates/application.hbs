@@ -12,26 +12,48 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active">{{#link-to 'index'}}Home{{/link-to}}</li>
-            <li>{{#link-to 'component-test'}}About{{/link-to}}</li>
-            <li>{{#link-to 'helper-test'}}Contact{{/link-to}}</li>
+            <!-- <li class="active">{{#link-to 'index'}}Home{{/link-to}}</li> -->
+            <li>{{#link-to 'brisbane'}}Brisbane{{/link-to}}</li>
+            <li>{{#link-to 'sydney'}}Sydney{{/link-to}}</li>
+            <li>{{#link-to 'melbourne'}}Melbourne{{/link-to}}</li>
+            <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
             <li>{{#link-to 'posts.index'}}Posts{{/link-to}}</li>
             <li>{{#link-to 'posts.new'}}Post New{{/link-to}}</li>
             <li>{{#link-to 'posts.view'}}Post View{{/link-to}}</li>
-<!--
+
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">브리스번 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#component-test">Action</a></li>
-                <li><a href="#helper-test">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li>{{#link-to 'brisbane.index'}}소개{{/link-to}}</li>
                 <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li class="dropdown-header">행사 안내</li>
+                <li>{{#link-to 'brisbane.contact'}}연락처{{/link-to}}</li>
+                <li>{{#link-to 'brisbane.map'}}오시는 길{{/link-to}}</li>
               </ul>
             </li>
--->
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">시드니 <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>{{#link-to 'sydney.index'}}소개{{/link-to}}</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">행사 안내</li>
+                <li>{{#link-to 'sydney.contact'}}연락처{{/link-to}}</li>
+                <li>{{#link-to 'sydney.map'}}오시는 길{{/link-to}}</li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">멜번 <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>{{#link-to 'melbourne.index'}}소개{{/link-to}}</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">행사 안내</li>
+                <li>{{#link-to 'melbourne.contact'}}연락처{{/link-to}}</li>
+                <li>{{#link-to 'melbourne.map'}}오시는 길{{/link-to}}</li>
+              </ul>
+            </li>
+
           </ul>
 
 <!--

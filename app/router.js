@@ -8,13 +8,28 @@ Router.map(function() {
   this.route("about");
   this.route("favorites", { path: "/favs" });
 
-  this.route('component-test');
-  this.route('helper-test');
+  this.resource('brisbane', function() {
+    this.route("index");
+    this.route("contact");
+    this.route("map");
+  });
+
+  this.resource('sydney', function() {
+    this.route("index");
+    this.route("contact");
+    this.route("map");
+  });
+
+  this.resource('melbourne', function() {
+    this.route("index");
+    this.route("contact");
+    this.route("map");
+  });
 
   this.resource('posts', function() {
-    this.route("index")
-    this.route("new")
-    this.route("view")
+    this.route("index");
+    this.route("new");
+    this.route("view");
   });
 });
 

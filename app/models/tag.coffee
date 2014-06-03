@@ -5,7 +5,7 @@ Tag = DS.Model.extend
   updated: DS.attr 'date'
   posts: DS.hasMany 'post'
 
-Comment.reopenClass
+Tag.reopenClass
   FIXTURES: [
     {
       id:        1,
