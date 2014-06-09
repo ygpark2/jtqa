@@ -38,4 +38,4 @@ Participant.reopenClass
     }
   ]
 
-`export default Post`
+`export default Participant`

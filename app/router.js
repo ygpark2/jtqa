@@ -26,6 +26,8 @@ Router.map(function() {
     this.route("map");
   });
 
+  this.route("participant");
+
   this.resource('posts', function() {
     this.route("index");
     this.route("new");

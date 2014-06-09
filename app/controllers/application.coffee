@@ -1,6 +1,9 @@
 Obj = Ember.Controller.extend
-  needs: ["login"]
-  identification: Em.computed.alias("controllers.login.identification")
+  selectedProgrammer: null,
+  programmers: [
+    "Yehuda",
+    "Tom"
+  ]
 
 
 `export default Obj`

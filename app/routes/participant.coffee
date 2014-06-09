@@ -1,5 +1,13 @@
 ParticipantRoute = Ember.Route.extend
   model: ->
-    @store.find 'participant'
+    @store.createRecord 'participant'
+
+  actions:
+    save: ->
+      @currentModel.save().then (participant) ->
+        @transitionTo 'participant.show', participant
+
+    cancel: ->
+      @transitionTo 'participants.index'
 
 `export default ParticipantRoute`

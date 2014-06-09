@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">법륜스님 즉문즉설</a>
+          <a class="navbar-brand" href="#">법륜스님 오세아니아 즉문즉설</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -19,7 +19,7 @@
               <ul class="dropdown-menu">
                 <li>{{#link-to 'brisbane.index'}}소개{{/link-to}}</li>
                 <li class="divider"></li>
-                <li class="dropdown-header">안내</li>
+                <li class="dropdown-header">행사 안내</li>
                 <li>{{#link-to 'brisbane.contact'}}연락처{{/link-to}}</li>
                 <li>{{#link-to 'brisbane.map'}}오시는 길{{/link-to}}</li>
               </ul>
@@ -30,7 +30,7 @@
               <ul class="dropdown-menu">
                 <li>{{#link-to 'sydney.index'}}소개{{/link-to}}</li>
                 <li class="divider"></li>
-                <li class="dropdown-header">안내</li>
+                <li class="dropdown-header">행사 안내</li>
                 <li>{{#link-to 'sydney.contact'}}연락처{{/link-to}}</li>
                 <li>{{#link-to 'sydney.map'}}오시는 길{{/link-to}}</li>
               </ul>
@@ -41,13 +41,13 @@
               <ul class="dropdown-menu">
                 <li>{{#link-to 'melbourne.index'}}소개{{/link-to}}</li>
                 <li class="divider"></li>
-                <li class="dropdown-header">안내</li>
+                <li class="dropdown-header">행사 안내</li>
                 <li>{{#link-to 'melbourne.contact'}}연락처{{/link-to}}</li>
                 <li>{{#link-to 'melbourne.map'}}오시는 길{{/link-to}}</li>
               </ul>
             </li>
 
-            <li>{{#link-to 'posts.index'}}참가신청{{/link-to}}</li>
+            <li>{{#link-to 'participant'}}참가신청{{/link-to}}</li>
 
             <!--
             <li>{{#link-to 'posts.index'}}Posts{{/link-to}}</li>
@@ -81,8 +81,12 @@
 
     <div class="container">
 
-    <h2 id='title'>Welcome to Ember.js</h2>
+		<div class="main-content">
+			{{outlet}}
+  		</div>
 
-{{outlet}}
+		<footer class="text-right">
+  			<p>© YGP &amp; AIN 2013</p>
+		</footer>
 
     </div> <!-- /container -->
