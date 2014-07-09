@@ -1,5 +1,5 @@
 Obj = DS.RESTAdapter.extend
-  namespace: 'ean-services/rs/hotel/v3',
+  namespace: 'api/v1',
   host: window.ENV.server
 
 `export default Obj`
