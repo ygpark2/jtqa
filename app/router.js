@@ -12,43 +12,31 @@ Router.map(function() {
     this.route("index");
     this.route("contact");
     this.route("map");
-    this.resource('carpool', function() {
-      this.route("index");
-      this.route("new");
-      this.route("view");
-    });
   });
 
   this.resource('sydney', function() {
     this.route("index");
     this.route("contact");
     this.route("map");
-    this.resource('carpool', function() {
-      this.route("index");
-      this.route("new");
-      this.route("view");
-    });
   });
 
   this.resource('melbourne', function() {
     this.route("index");
     this.route("contact");
     this.route("map");
-    this.resource('carpool', function() {
-      this.route("index");
-      this.route("new");
-      this.route("view");
-    });
   });
 
   this.route("participant");
 
-  this.resource('posts', { path: 'posts/:type' }, function() {
-      this.route('edit', { path: '/:post_id' });
+  this.resource('posts', { path: 'posts/:ptype' });
+
+  this.resource('post', { path: 'post/:ptype' }, function() {
+    this.route('edit', { path: '/edit/:pid' });
+    this.route('show', { path: '/show/:pid' });
+    this.route('new', { path: '/new' });
+    this.resource('comments', function() {
       this.route('new');
-      this.resource('comments', function() {
-        this.route('new');
-      });
+    });
   });
 
     /*

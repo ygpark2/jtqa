@@ -3,6 +3,7 @@ Post = DS.Model.extend
   title: DS.attr 'string'
   content: DS.attr 'string'
   author: DS.attr 'string'
+  views: DS.attr 'number'
   created: DS.attr 'date'
   updated: DS.attr 'date'
   tags: DS.hasMany 'tag'
