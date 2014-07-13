@@ -1,3 +1,5 @@
+import DS from "ember-data";
+
 var attr = DS.attr;
 
 var Hotel = DS.Model.extend({

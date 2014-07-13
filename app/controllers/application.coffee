@@ -5,6 +5,4 @@ Obj = Ember.Controller.extend
     "Tom"
   ]
 
-console.log "this is application"
-
 `export default Obj`
