@@ -1,7 +1,7 @@
 Obj = Ember.Component.extend
   participant: null,
-  saveText: 'Save',
-  cancelText: 'Cancel',
+  saveText: '참가 신청',
+  cancelText: '취소',
   saveAction: 'save',
   cancelAction: 'cancel',
 
