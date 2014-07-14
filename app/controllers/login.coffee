@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 Obj = Ember.Controller.extend Ember.SimpleAuth.LoginControllerMixin, {
         authenticatorFactory: 'ember-simple-auth-authenticator:oauth2-password-grant'
       }

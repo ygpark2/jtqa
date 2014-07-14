@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 Obj = Ember.Controller.extend
   selectedState: '',
   states: [
@@ -5,5 +7,7 @@ Obj = Ember.Controller.extend
     {name: "Melbourne", value: "MEL"},
     {name: "Brisbane",  value: "BNE"}
   ]
+
+console.log "participant controller"
 
 `export default Obj`

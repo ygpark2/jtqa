@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 Obj = Ember.Controller.extend
   selectedProgrammer: null,
   programmers: [

@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 
 Obj = Ember.Controller.extend
   selectedState: '',

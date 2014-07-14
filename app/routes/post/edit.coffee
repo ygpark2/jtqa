@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 PostEditRoute = Ember.Route.extend
   model: ->
     @store.find 'post'

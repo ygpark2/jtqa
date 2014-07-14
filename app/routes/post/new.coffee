@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 PostNewRoute = Ember.Route.extend
   model: (params) ->
     console.log "=================================="

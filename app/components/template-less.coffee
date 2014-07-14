@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 Obj = Ember.Component.extend
   classNames: ['look-ma-no-template'],
   tagName: ['span']

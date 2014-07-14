@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 ContactRoute = Ember.Route.extend
   model: ->
     {

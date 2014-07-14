@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 Obj = Ember.Component.extend
   classNames: ['pretty-color'],
   attributeBindings: ['style'],

@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 
 GoogleMap = Ember.View.extend
 	id: 'map_canvas',

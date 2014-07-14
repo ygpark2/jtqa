@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 ParticipantRoute = Ember.Route.extend
   model: ->
     @store.createRecord 'participant'

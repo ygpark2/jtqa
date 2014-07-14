@@ -1,3 +1,4 @@
+`import DS from "ember-data"`
 
 Participant = DS.Model.extend
   state: DS.attr 'string'

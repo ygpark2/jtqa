@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 Obj = Ember.Controller.extend
   # needs: ['posts/details'],
   # postsDetails: Ember.computed.alias('controllers.posts/details'),
