@@ -2,7 +2,7 @@
   "predef": {
     "document": true,
     "window": true,
-    "MyNewAppENV": true
+    "JtqaENV": true
   },
   "browser" : true,
   "boss" : true,

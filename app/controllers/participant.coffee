@@ -8,6 +8,4 @@ Obj = Ember.Controller.extend
     {name: "Brisbane",  value: "BNE"}
   ]
 
-console.log "participant controller"
-
 `export default Obj`

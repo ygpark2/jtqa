@@ -1,4 +1,85 @@
 <h3>브리스번 행사장 약도</h3>
 
 
-{{view "map" address="19 marong street, sunnybank hills, qld, 4109"}}
+<div id="map" class="map"></div>
+
+<script>
+  var directionsDisplayA;
+  var directionsDisplayB;
+  var directionsDisplayPickup;
+  var directionsDisplayDropoff;
+  var map;
+
+  function initialize() {
+    directionsDisplayA = new google.maps.DirectionsRenderer({preserveViewport: true,
+      polylineOptions: { strokeColor: 'rgb(0, 180, 174)',
+        strokeWeight: 8 }})
+    directionsDisplayB = new google.maps.DirectionsRenderer({preserveViewport: true,
+      polylineOptions: { strokeColor: 'rgb(229, 99, 133)',
+        strokeWeight: 8 }})
+    directionsDisplayPickup = new google.maps.DirectionsRenderer({preserveViewport: true,
+      suppressMarkers: true})
+    directionsDisplayDropoff = new google.maps.DirectionsRenderer({preserveViewport: true,
+      suppressMarkers: true})
+    var sanFran = new google.maps.LatLng(37.802139, -122.41874);
+    var mapOptions = {
+      zoom: 12,
+      center: sanFran
+    }
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    directionsDisplayA.setMap(map);
+    directionsDisplayB.setMap(map);
+    directionsDisplayPickup.setMap(map);
+    directionsDisplayDropoff.setMap(map);
+    gelocatorRequestsRemaining = 4;
+  }
+
+  function displayRoute(directionsDisplay, start, end) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, function(result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(result);
+        } else {
+        alert("Hrm... Google had a problem finding directions. Check over " +
+        "your addresses, make sure you specify the city, and if everything's " +
+        "correct just wait a little while and try again.");
+      }
+    });
+  }
+
+  var latLngBounds;
+  var gelocatorRequestsRemaining;
+
+  function centerMap(locations) {
+    latLngBounds = new google.maps.LatLngBounds();
+    gelocatorRequestsRemaining = 4;
+
+    for (var i = 0; i < 4; i++) {
+      var location = locations[i];
+      var geocoder = new google.maps.Geocoder();
+      var request = { address: location };
+
+      geocoder.geocode(request, function(result, status) {
+        latLngBounds.extend(result[0].geometry.location);
+
+        --gelocatorRequestsRemaining;
+        centerMapIfFinished();
+      });
+    }
+  }
+
+  function centerMapIfFinished() {
+    if (gelocatorRequestsRemaining <= 0) {
+      map.fitBounds(latLngBounds);
+      gelocatorRequestsRemaining = 4;
+    }
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+  //this.get('ApplicationController').send('updateMap');
+</script>
