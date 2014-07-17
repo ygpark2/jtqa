@@ -1,17 +1,19 @@
 `import Ember from "ember"`
+`import GoogleMapsLoader from "google-maps"`
 
 GoogleMap = Ember.View.extend
 	id: 'map_canvas',
-  	tagName: 'div',
+  tagName: 'div',
 
-  	attributeBindings: ['style'],
-  	style:"width:100%; height:550px",
+  attributeBindings: ['style'],
+  style:"width:100%; height:550px",
 
-  	map:null,
+  map:null,
 
-  	markers:[],
+  markers:[],
   
-    didInsertElement: ->
+  didInsertElement: ->
+    GoogleMapsLoader.load (google) ->
       mapOptions =
         center: new google.maps.LatLng(-34.397, 150.644),
         zoom: 8,
@@ -40,9 +42,9 @@ GoogleMap = Ember.View.extend
           infoWindow = new google.maps.InfoWindow
             content: """
               <div class='place'>
-                       행사일 : 11월 28일 <br/>
-                       행사 시간 : 2pm ~ 4pm <br/>
-                       주소 : {{@get('address')}}
+                     행사일 : 11월 28일 <br/>
+                     행사 시간 : 2pm ~ 4pm <br/>
+                     주소 : {{@get('address')}}
               </div>
               """
 

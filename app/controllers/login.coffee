@@ -1,7 +1,9 @@
 `import Ember from "ember"`
 
-Obj = Ember.Controller.extend Ember.SimpleAuth.LoginControllerMixin, {
-        authenticatorFactory: 'ember-simple-auth-authenticator:oauth2-password-grant'
-      }
+`import LoginControllerMixin from "simple-auth/mixins/login-controller-mixin"`
+
+Obj = Ember.Controller.extend LoginControllerMixin, {
+  authenticatorFactory: 'authenticator:custom'
+}
 
 `export default Obj`

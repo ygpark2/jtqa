@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin, {
-  renderTemplate: function() {
-    this.render('protected');
-  }
-});
+// app/routes/protected.js
+import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+
+export default Ember.Route.extend(AuthenticatedRouteMixin);

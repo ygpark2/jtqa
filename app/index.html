@@ -10,14 +10,16 @@
     {{BASE_TAG}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/jtqa.css">
+    <link rel="stylesheet" href="assets/app.css">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ8OGhjGhQh11OWCwcLmUskmwMPoIZpFA"></script>
     <!--  <script src='https://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script> -->
+
   </head>
   <body>
     <script>
       window.JtqaENV = {{ENV}};
+      window.ENV = window.JtqaENV;
       window.EmberENV = window.JtqaENV.EmberENV;
     </script>
     <script src="assets/vendor.js"></script>

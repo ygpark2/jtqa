@@ -7,12 +7,18 @@ PostEditRoute = Ember.Route.extend
   actions:
     save: (params) ->
       console.log "save action called"
+      console.log "=================="
+      console.log params
+      console.log "=================="
       @currentModel.save().then (post) ->
         console.log post
         # @transitionTo 'post.show', post
 
     cancel: (params) ->
       console.log "cancel action called"
+      console.log "=================="
+      console.log params
+      console.log "=================="
       # @transitionTo 'posts.index'
 
 `export default PostEditRoute`

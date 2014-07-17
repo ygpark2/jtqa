@@ -1,5 +1,7 @@
 `import Ember from "ember"`
 
-Obj = Ember.Route.extend Ember.SimpleAuth.ApplicationRouteMixin
+`import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin'`
+
+Obj = Ember.Route.extend ApplicationRouteMixin
 
 `export default Obj`
