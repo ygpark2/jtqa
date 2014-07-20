@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 Obj = Ember.Component.extend
-  # participant: null,
+  participant: null,
   saveText: '참가 신청',
   cancelText: '취소',
   saveAction: 'save',

@@ -34,10 +34,10 @@ Router.map(function() {
 
     this.resource('posts', { path: 'posts/:ptype' });
 
-    this.resource('post', { path: 'post/:ptype' }, function() {
-        this.route('edit', { path: '/edit/:pid' });
-        this.route('show', { path: '/show/:pid' });
-        this.route('new', { path: '/new' });
+    this.resource('post', { path: 'post' }, function() {
+        this.route('edit', { path: '/:ptype/edit/:pid' });
+        this.route('show', { path: '/:ptype/show/:pid' });
+        this.route('new', { path: '/:ptype/new' });
         this.resource('comments', function() {
             this.route('new');
         });

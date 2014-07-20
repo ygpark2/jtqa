@@ -1,8 +1,9 @@
 `import Ember from "ember"`
 
 Obj = Ember.Component.extend
-  # participant: null,
-  saveText: '참가 신청',
+  # templateName:'components/post/new'
+  # post: null,
+  saveText: '글쓰기',
   cancelText: '취소',
   saveAction: 'save',
   cancelAction: 'cancel',
@@ -14,7 +15,5 @@ Obj = Ember.Component.extend
 
     cancel: ->
       @sendAction('cancelAction')
-
-console.log "participant form component loaded !!!!!!!!!!!!!!!!!!!!!"
 
 `export default Obj`

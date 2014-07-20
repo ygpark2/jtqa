@@ -1,23 +1,14 @@
 `import DS from "ember-data"`
+`import Post from "jtqa/models/post"`
 
-Post = DS.Model.extend
-  title: DS.attr 'string'
-  content: DS.attr 'string'
-  name: DS.attr 'string'
-  email: DS.attr 'string'
-  phone: DS.attr 'string'
-  views: DS.attr 'number'
-  total_comments: DS.attr 'number'
-  created: DS.attr 'date'
-  updated: DS.attr 'date'
-  tags: DS.hasMany 'tag'
-  comments: DS.hasMany 'comment'
+Melbourne = Post.extend
+  category: DS.attr 'string'
 
-###
-Post.reopenClass
+Melbourne.reopenClass
   FIXTURES: [
     {
       id:        101,
+      category: 'abcd',
       title:    'How do I feed hamsters?',
       name:     'Tom Dale',
       email:    'abcd@test.com',
@@ -28,11 +19,12 @@ Post.reopenClass
       updated:  '2014-01-01T12:00:00',
       comments: [1, 3],
       tags:     [1, 2, 3],
-      content:  'Tomster cant eat using knife and a fork because his hands are \
-                 too small. We are looking for a way to feed him. Any ideas?'
+      content:  'Tomster cant eat using knife and a fork because his hands are
+                       too small. We are looking for a way to feed him. Any ideas?'
     },
     {
       id:        102,
+      category: 'abcde',
       title:    'Are humans insane?',
       name:     'Bob Dale',
       email:    'test@test.com',
@@ -43,10 +35,9 @@ Post.reopenClass
       created:  '2013-02-02T12:00:00',
       comments: [2, 4],
       tags:     [4, 5, 6],
-      content:  'I mean are totaly nuts? Is there any hope left for them? Should \
-                 we hamsters try to save them?'
+      content:  'I mean are totaly nuts? Is there any hope left for them? Should
+                       we hamsters try to save them?'
     }
   ]
-###
 
-`export default Post`
+`export default Melbourne`

@@ -1,14 +1,15 @@
 `import Ember from "ember"`
 
 PostNewRoute = Ember.Route.extend
-  model: (params) ->
+  model: (params, transition) ->
     console.log "=================================="
-    console.log params.ptype
+    console.log params
     console.log "=================================="
-    @store.createRecord 'post'
+    # @store.createRecord params.ptype, { type: params.ptype }
+    @store.createRecord params.ptype, { category: "default", views: 0, total_comments: 0 }
 
   actions:
-    save: (params) ->
+    save: (params, transition) ->
       console.log "save action called"
       console.log "=================="
       console.log params
@@ -17,7 +18,7 @@ PostNewRoute = Ember.Route.extend
         console.log post
         # @transitionTo 'post.show', post
 
-    cancel: (params) ->
+    cancel: (params, transition) ->
       console.log "cancel action called"
       console.log "=================="
       console.log params
