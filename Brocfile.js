@@ -15,8 +15,32 @@ var app = new EmberApp({
 
 // Use this to add additional libraries to the generated output files.
 app.import('vendor/ember-data/ember-data.js');
-app.import('vendor/bootstrap/dist/js/bootstrap.js');
-app.import('vendor/bootstrap/dist/css/bootstrap.css');
+
+app.import('vendor/uikit/dist/js/uikit.min.js');
+app.import('vendor/uikit/dist/js/addons/autocomplete.min.js');
+app.import('vendor/uikit/dist/js/addons/datepicker.min.js');
+app.import('vendor/uikit/dist/js/addons/form-password.min.js');
+app.import('vendor/uikit/dist/js/addons/form-select.min.js');
+app.import('vendor/uikit/dist/js/addons/htmleditor.min.js');
+app.import('vendor/uikit/dist/js/addons/nestable.min.js');
+app.import('vendor/uikit/dist/js/addons/notify.min.js');
+app.import('vendor/uikit/dist/js/addons/pagination.min.js');
+app.import('vendor/uikit/dist/js/addons/search.min.js');
+app.import('vendor/uikit/dist/js/addons/sortable.min.js');
+app.import('vendor/uikit/dist/js/addons/sticky.min.js');
+app.import('vendor/uikit/dist/js/addons/timepicker.min.js');
+app.import('vendor/uikit/dist/js/addons/upload.min.js');
+
+app.import('vendor/uikit/dist/css/uikit.min.css');
+app.import('vendor/uikit/dist/css/uikit.gradient.min.css');
+// app.import('vendor/uikit/dist/css/uikit.almost-flat.min.css');
+
+// app.import('vendor/uikit/dist/css/addons/uikit.almost-flat.addons.min.css');
+// app.import('vendor/uikit/dist/css/addons/uikit.gradient.addons.min.css');
+// app.import('vendor/uikit/dist/css/addons/uikit.addons.min.css');
+
+// app.import('vendor/bootstrap/dist/js/bootstrap.js');
+// app.import('vendor/bootstrap/dist/css/bootstrap.css');
 // app.import('vendor/bootstrap/dist/css/bootstrap.css.map');
 
 // If the library that you are including contains AMD or ES6 modules that

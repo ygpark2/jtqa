@@ -1,0 +1,81 @@
+<nav class="uk-navbar uk-margin-large-bottom">
+
+    <a class="uk-navbar-brand" href="#">오세아니아 즉문즉설</a>
+
+    <ul class="uk-navbar-nav">
+        <li class="uk-parent" data-uk-dropdown="">
+            <a href=""><i class="uk-icon-home"></i> 브리스번</a>
+
+            <div class="uk-dropdown uk-dropdown-navbar">
+                <ul class="uk-nav uk-nav-navbar">
+                    <li>{{#link-to 'brisbane.index'}}소개{{/link-to}}</li>
+                    <li class="uk-nav-divider"></li>
+                    <li class="uk-nav-header">행사 안내</li>
+                    <li>{{#link-to 'brisbane.contact'}}연락처{{/link-to}}</li>
+                    <li>{{#link-to 'brisbane.map'}}오시는 길{{/link-to}}</li>
+                    <li class="uk-nav-divider"></li>
+                    <li>{{#link-to 'posts' 'brisbane'}}문의 게시판{{/link-to}}</li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="uk-parent" data-uk-dropdown="">
+            <a href=""><i class="uk-icon-home"></i> 시드니</a>
+
+            <div class="uk-dropdown uk-dropdown-navbar">
+                <ul class="uk-nav uk-nav-navbar">
+                    <li>{{#link-to 'sydney.index'}}소개{{/link-to}}</li>
+                    <li class="uk-nav-divider"></li>
+                    <li class="uk-nav-header">행사 안내</li>
+                    <li>{{#link-to 'sydney.contact'}}연락처{{/link-to}}</li>
+                    <li>{{#link-to 'sydney.map'}}오시는 길{{/link-to}}</li>
+                    <li class="uk-nav-divider"></li>
+                    <li>{{#link-to 'posts' 'sydney'}}문의 게시판{{/link-to}}</li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="uk-parent" data-uk-dropdown="">
+            <a href=""><i class="uk-icon-home"></i> 멜번</a>
+
+            <div class="uk-dropdown uk-dropdown-navbar">
+                <ul class="uk-nav uk-nav-navbar">
+                    <li>{{#link-to 'melbourne.index'}}소개{{/link-to}}</li>
+                    <li class="uk-nav-divider"></li>
+                    <li class="uk-nav-header">행사 안내</li>
+                    <li>{{#link-to 'melbourne.contact'}}연락처{{/link-to}}</li>
+                    <li>{{#link-to 'melbourne.map'}}오시는 길{{/link-to}}</li>
+                    <li class="uk-nav-divider"></li>
+                    <li>{{#link-to 'posts' 'melbourne'}}문의 게시판{{/link-to}}</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <!--
+    <div class="uk-navbar-content">Some <a href="#">link</a>.</div>
+
+    <div class="uk-navbar-content uk-hidden-small">
+        <form class="uk-form uk-margin-remove uk-display-inline-block">
+            <input type="text" placeholder="Search">
+            <button class="uk-button uk-button-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
+        <div class="uk-button-group">
+            <a class="uk-button uk-button-danger" href="#">Link</a>
+            <button class="uk-button uk-button-danger">Button</button>
+        </div>
+    </div>
+    -->
+
+    <div class="uk-navbar-flip">
+        <ul class="uk-navbar-nav">
+        {{#if session.isAuthenticated}}
+            <li class="uk-hidden-small"><a {{ action 'invalidateSession' }}>Logout</a></li>
+        {{else}}
+            <li class="uk-hidden-small"><a {{ action 'authenticateSession' }}>Login</a></li>
+        {{/if}}
+        </ul>
+    </div>
+</nav>

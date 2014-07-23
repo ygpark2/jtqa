@@ -1,92 +1,17 @@
- <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">법륜스님 오세아니아 즉문즉설</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <!-- <li class="active">{{#link-to 'index'}}Home{{/link-to}}</li> -->
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">브리스번 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>{{#link-to 'brisbane.index'}}소개{{/link-to}}</li>
-                <li class="divider"></li>
-                <li class="dropdown-header">행사 안내</li>
-                <li>{{#link-to 'brisbane.contact'}}연락처{{/link-to}}</li>
-                <li>{{#link-to 'brisbane.map'}}오시는 길{{/link-to}}</li>
-                <li class="divider"></li>
-                <li>{{#link-to 'posts' 'brisbane'}}문의 게시판{{/link-to}}</li>
-              </ul>
-            </li>
+<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">시드니 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>{{#link-to 'sydney.index'}}소개{{/link-to}}</li>
-                <li class="divider"></li>
-                <li class="dropdown-header">행사 안내</li>
-                <li>{{#link-to 'sydney.contact'}}연락처{{/link-to}}</li>
-                <li>{{#link-to 'sydney.map'}}오시는 길{{/link-to}}</li>
-                <li class="divider"></li>
-                <li>{{#link-to 'posts' 'sydney'}}문의 게시판{{/link-to}}</li>
-              </ul>
-            </li>
+    <!-- Fixed navbar -->
+    {{ partial "partial/header" }}
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">멜번 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>{{#link-to 'melbourne.index'}}소개{{/link-to}}</li>
-                <li class="divider"></li>
-                <li class="dropdown-header">행사 안내</li>
-                <li>{{#link-to 'melbourne.contact'}}연락처{{/link-to}}</li>
-                <li>{{#link-to 'melbourne.map'}}오시는 길{{/link-to}}</li>
-                <li class="divider"></li>
-                <li>{{#link-to 'posts' 'melbourne'}}문의 게시판{{/link-to}}</li>
-              </ul>
-            </li>
-
-            <li>{{#link-to 'participant'}}참가신청{{/link-to}}</li>
-
-          </ul>
-
-<!--
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" name="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="text" name="password" class="form-control" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-default">Login</button>
-          </form>
--->
-          <ul class="nav navbar-nav navbar-right">
-            {{#if session.isAuthenticated}}
-                <li><a {{ action 'invalidateSession' }}>Logout</a></li>
-            {{else}}
-                <li><a {{ action 'authenticateSession' }}>Login</a></li>
-            {{/if}}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-    <div class="container">
-
-		<div class="main-content">
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
 			{{outlet}}
   		</div>
+    </div>
 
-		<footer class="text-right">
-  			<p>© YGP &amp; AIN 2013</p>
-		</footer>
+    <hr class="uk-grid-divider"></hr>
 
-    </div> <!-- /container -->
+    {{ partial "partial/footer" }}
+
+</div>
