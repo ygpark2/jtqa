@@ -32,9 +32,10 @@ Router.map(function() {
 
     this.route("participant");
 
-    this.resource('posts', { path: 'posts/:ptype' });
+    // this.resource('posts', { path: 'posts/:ptype' });
 
-    this.resource('post', { path: 'post' }, function() {
+    this.resource('posts', { path: 'posts' }, function() {
+        this.route('index', { path: '/:ptype' });
         this.route('edit', { path: '/:ptype/edit/:pid' });
         this.route('show', { path: '/:ptype/show/:pid' });
         this.route('new', { path: '/:ptype/new' });
