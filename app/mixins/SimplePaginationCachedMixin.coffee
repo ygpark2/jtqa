@@ -2,8 +2,8 @@
 
 Obj = Ember.Mixin.create
   rangeCache: {}
-
-  onPageChanged: () ->
+  ,
+  onPageChanged: ( ->
     _this = @
     key = ""
 
@@ -20,7 +20,7 @@ Obj = Ember.Mixin.create
         # null
     else
       @set('paginatedContent', @rangeCache[key])
-  observes('pageStart').on('init'),
+  ).observes('pageStart').on('init'),
 
   clearCache: () ->
     @set('rangeCache', {})

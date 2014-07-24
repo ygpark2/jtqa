@@ -2,9 +2,10 @@
 
 PostsIndexRoute = Ember.Route.extend
   controllerName: 'posts/index',
-  model: (params, transition) ->
+  model: (params) ->
     @set('ptype', params.ptype)
     @set('postsTemplate', "posts/index")
+    @set('controllerName', "posts/index")
 
     console.log "=============== posts ==================="
     console.log params
@@ -13,16 +14,23 @@ PostsIndexRoute = Ember.Route.extend
 
     # Optional controller: used only if exists
     console.log @container
-    if @container.resolve("controller:#{controllerName}")
-      @set('postsIndexController', controllerName)
-      console.log "found controller ===================>>>>>>>>>>>"
-
-    return @steps.indexOf(params['step'])
-
+  ,
+  setupController: (controller, model) ->
+    console.log "=============== setupController ==================="
+    console.log controller
+    console.log model
+    console.log "=============== setupController ==================="
+    controller.set('model', model)
+###
+  ,
   renderTemplate: (controller, model) ->
+    console.log "=============== render ==================="
+    console.log controller
+    console.log "=============== render ==================="
     @render()
     @render @get('postsTemplate'),
       controller: @get('postsIndexController')
       into: 'posts'
+###
 
 `export default PostsIndexRoute`

@@ -15,7 +15,7 @@ Obj = Ember.Mixin.create
     , (cause) ->
       # TODO: proper error handling
   ,
-  pageStart: () ->
+  pageStart: ( ->
     newPageStart = page = parseInt(@get('page'))
 
     if(Ember.isEmpty(@get('total')))
@@ -26,22 +26,22 @@ Obj = Ember.Mixin.create
       return null
 
     return newPageStart
-  property('page', 'total'),
+  ).property('page', 'total'),
 
-  pageEnd: () ->
+  pageEnd: ( ->
     if(@get('pageStart') == null)
       return null
     newPageEnd = @get('pageStart') + @get('pageSize')
     if(newPageEnd >= @get('total'))
       newPageEnd = @get('total') + 1
     return newPageEnd - 1
-  property('pageStart'),
+  ).property('pageStart'),
 
-  totalPages: () ->
+  totalPages: ( ->
     return Math.ceil(@get('total') / @get('pageSize'))
-  property('total'),
+  ).property('total'),
 
-  onPageChanged: () ->
+  onPageChanged: ( ->
     _this = @
 
     if(@get('pageStart') == null)
@@ -51,9 +51,9 @@ Obj = Ember.Mixin.create
       _this.set('paginatedContent', data)
     , (cause) ->
       #TODO: proper error handling
-  observes('pageStart').on('init'),
+  ).observes('pageStart').on('init'),
 
-  paginationItems: () ->
+  paginationItems: ( ->
     result = []
     totalPages = @get('totalPages')
     page = parseInt(@get('page'))
@@ -77,23 +77,23 @@ Obj = Ember.Mixin.create
       paginationItem = i + startPos
       result.push({page: paginationItem, isActive: paginationItem == page})
     return result
-  property('page', 'itemCount', 'totalPages'),
+  ).property('page', 'itemCount', 'totalPages'),
 
-  previousPage: () ->
+  previousPage: ( ->
     page = parseInt(@get('page'))
 
     if(page < 1)
       return null
     return page - 1
-  property('page'),
+  ).property('page'),
 
-  nextPage: () ->
+  nextPage: ( ->
     page = parseInt(@get('page'))
 
     if(Ember.isEmpty(@get('totalPages')) || page >= @get('totalPages'))
       return null
     return page + 1
-  property('page', 'totalPages'),
+  ).property('page', 'totalPages'),
 
   didRequestRange: Ember.K,
   didRequestTotal: Ember.K

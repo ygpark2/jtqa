@@ -17,14 +17,14 @@
 
   </head>
   <body>
-    <script>
+    <script type="application/javascript">
       window.JtqaENV = {{ENV}};
-      window.ENV = window.JtqaENV;
+      // window.ENV = window.JtqaENV;
       window.EmberENV = window.JtqaENV.EmberENV;
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/jtqa.js"></script>
-    <script>
+    <script type="application/javascript">
       window.Jtqa = require('jtqa/app')['default'].create(JtqaENV.APP);
     </script>
   </body>

@@ -8,7 +8,7 @@ Obj = Ember.Mixin.create
 
     new Ember.RSVP.Promise (resolve, reject) ->
       resolve(_this.get('data').slice(pageStart - 1, pageEnd))
-
+  ,
   didRequestTotal: () ->
     _this = @;
 
