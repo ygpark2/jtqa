@@ -5,7 +5,7 @@
     "jquery": "^1.11.1",
     "qunit": "~1.12.0",
     "ember-qunit": "~0.1.8",
-    "ember": "emberjs/ember.js#1.7.0-beta.3",
+    "ember": "components/ember#canary",
     "ember-resolver": "~0.1.1",
     "loader": "stefanpenner/loader.js#1.0.0",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.2",
@@ -14,7 +14,8 @@
     "ember-cli-test-loader": "rjackson/ember-cli-test-loader#0.0.2"
   },
   "resolutions": {
-    "jquery": "^1.11.1"
+    "jquery": "^1.11.1",
+    "ember": "canary"
   },
   "devDependencies": {
     "uikit": "~2.8.0",
