@@ -35,9 +35,25 @@ app.import('vendor/uikit/dist/css/uikit.min.css');
 app.import('vendor/uikit/dist/css/uikit.gradient.min.css');
 // app.import('vendor/uikit/dist/css/uikit.almost-flat.min.css');
 
+app.import('vendor/uikit/dist/css/addons/uikit.addons.min.css');
+app.import('vendor/uikit/dist/css/addons/uikit.gradient.addons.min.css');
 // app.import('vendor/uikit/dist/css/addons/uikit.almost-flat.addons.min.css');
-// app.import('vendor/uikit/dist/css/addons/uikit.gradient.addons.min.css');
-// app.import('vendor/uikit/dist/css/addons/uikit.addons.min.css');
+
+app.import('vendor/uikit/dist/fonts/FontAwesome.otf', {
+   destDir: 'fonts'
+});
+
+app.import('vendor/uikit/dist/fonts/fontawesome-webfont.eot', {
+    destDir: 'fonts'
+});
+
+app.import('vendor/uikit/dist/fonts/fontawesome-webfont.ttf', {
+    destDir: 'fonts'
+});
+
+app.import('vendor/uikit/dist/fonts/fontawesome-webfont.woff', {
+    destDir: 'fonts'
+});
 
 // app.import('vendor/bootstrap/dist/js/bootstrap.js');
 // app.import('vendor/bootstrap/dist/css/bootstrap.css');
