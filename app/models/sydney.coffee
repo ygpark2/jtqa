@@ -7,7 +7,7 @@ Sydney = Post.extend
 Sydney.reopenClass
   FIXTURES: [
     {
-      id:        101,
+      id:        301,
       category: 'abcd',
       title:    'How do I feed hamsters?',
       name:     'Tom Dale',
@@ -23,7 +23,7 @@ Sydney.reopenClass
                        too small. We are looking for a way to feed him. Any ideas?'
     },
     {
-      id:        102,
+      id:        302,
       category: 'abcde',
       title:    'Are humans insane?',
       name:     'Bob Dale',

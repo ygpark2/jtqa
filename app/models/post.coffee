@@ -10,8 +10,8 @@ Post = DS.Model.extend
   total_comments: DS.attr 'number'
   created: DS.attr 'date'
   updated: DS.attr 'date'
-  tags: DS.hasMany 'tag'
-  comments: DS.hasMany 'comment'
+  tags: DS.hasMany 'tag', {async:true}
+  comments: DS.hasMany 'comment', {async:true}
 
 ###
 Post.reopenClass

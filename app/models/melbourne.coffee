@@ -7,7 +7,7 @@ Melbourne = Post.extend
 Melbourne.reopenClass
   FIXTURES: [
     {
-      id:        101,
+      id:        201,
       category: 'abcd',
       title:    'How do I feed hamsters?',
       name:     'Tom Dale',
@@ -23,7 +23,7 @@ Melbourne.reopenClass
                        too small. We are looking for a way to feed him. Any ideas?'
     },
     {
-      id:        102,
+      id:        202,
       category: 'abcde',
       title:    'Are humans insane?',
       name:     'Bob Dale',

@@ -10,7 +10,7 @@ Obj = Ember.Mixin.create
       resolve(_this.get('data').slice(pageStart - 1, pageEnd))
   ,
   didRequestTotal: () ->
-    _this = @;
+    _this = @
 
     new Ember.RSVP.Promise (resolve, reject) ->
       resolve(_this.get('data').length)
