@@ -19,8 +19,7 @@ Brisbane.reopenClass
       updated:  '2014-01-01T12:00:00',
       comments: [1, 3],
       tags:     [1, 2, 3],
-      content:  'Tomster cant eat using knife and a fork because his hands are
-                       too small. We are looking for a way to feed him. Any ideas?'
+      content:  'Tomster cant eat using knife and a fork because his hands are too small. We are looking for a way to feed him. Any ideas?'
     },
     {
       id:        102,
@@ -35,8 +34,7 @@ Brisbane.reopenClass
       created:  '2013-02-02T12:00:00',
       comments: [2, 4],
       tags:     [4, 5, 6],
-      content:  'I mean are totaly nuts? Is there any hope left for them? Should
-                       we hamsters try to save them?'
+      content:  'I mean are totaly nuts? Is there any hope left for them? Should we hamsters try to save them?'
     }
   ]
 

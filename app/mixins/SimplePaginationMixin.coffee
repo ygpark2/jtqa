@@ -13,6 +13,7 @@ Obj = Ember.Mixin.create
     @didRequestTotal().then (total) ->
       _this.set('total', total)
     , (cause) ->
+      console.log cause
       # TODO: proper error handling
   ,
   pageStart: ( ->
@@ -50,6 +51,7 @@ Obj = Ember.Mixin.create
     @didRequestRange().then (data) ->
       _this.set('paginatedContent', data)
     , (cause) ->
+      console.log cause
       #TODO: proper error handling
   ).observes('pageStart').on('init'),
 

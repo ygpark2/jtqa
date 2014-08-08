@@ -16,6 +16,7 @@ Obj = Ember.Mixin.create
         _this.get('rangeCache')[key] = data
         _this.set('paginatedContent', data)
       , (cause) ->
+        console.log cause
         # TODO: proper error handling
         # null
     else
