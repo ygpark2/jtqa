@@ -1,32 +1,114 @@
 {
   brisbanes: [{
-      id:        104,
-      category: 'abcd',
-      title:    'How do I feed hamsters?',
-      name:     'Tom Dale',
-      email:    'abcd@test.com',
-      phone:    '0413 892 872',
-      views:     10,
-      total_comments: 2,
-      created:  '2014-01-01T12:00:00',
-      updated:  '2014-01-01T12:00:00',
-      comments: [8, 7],
-      tags:     [1, 3, 5],
-      content:  'Tomster cant eat using knife and a fork because his hands are too small. We are looking for a way to feed him. Any ideas?'
+    id:        104,
+    category: 'abcd',
+    title:    'How do I feed hamsters?',
+    name:     'Tom Dale',
+    email:    'abcd@test.com',
+    phone:    '0413 892 872',
+    views:     10,
+    total_comments: 2,
+    created:  '2014-01-01T12:00:00',
+    updated:  '2014-01-01T12:00:00',
+    comments: [
+      {
+        id:        7,
+        email:    'test7@abc.com',
+        author:   'Tom Dale',
+        created:  '2014-01-06T12:00:00',
+        updated:  '2014-01-07T12:00:00',
+        content:  'Tomster cant eat using knife and a fork because his hands are \
+too small. We are looking for a way to feed him. Any ideas?'
+      },
+      {
+        id:        8,
+        email:    'test8@abc.com',
+        author:   'Tom Dale',
+        created:  '2014-01-08T12:00:00',
+        updated:  '2014-01-09T12:00:00',
+        content:  'Tomster cant eat using knife and a fork because his hands are \
+too small. We are looking for a way to feed him. Any ideas?'
+      }
+    ],
+    tags:     [
+      {
+        id:        1,
+        tag:      'Tag1',
+        created:  '2013-01-01T12:00:00',
+        updated:  '2013-01-01T12:00:00',
+        post:    104
+      },
+      {
+        id:        3,
+        tag:      'Tag3',
+        created:  '2013-01-01T12:00:00',
+        updated:  '2013-01-01T12:00:00',
+        post:    104
+      },
+      {
+        id:        5,
+        tag:      'Tag5',
+        created:  '2013-01-01T12:00:00',
+        updated:  '2013-01-01T12:00:00',
+        post:    104
+      }
+    ],
+    content:  'Tomster cant eat using knife and a fork because his hands are too small. We are looking for a way to feed him. Any ideas?'
   },
   {
-      id:        105,
-      category: 'abcd2',
-      title:    'How ddid I feed hamsters?',
-      name:     'Tom Dale adw',
-      email:    'abcd2@test.com',
-      phone:    '0413 892 872',
-      views:     11,
-      total_comments: 5,
-      created:  '2014-01-01T12:00:00',
-      updated:  '2014-01-01T12:00:00',
-      comments: [2, 4],
-      tags:     [9, 11, 13],
-      content:  'Tomster cant eat using knife and a fork because his hands are too small. We are looking for a way to feed him. Any ideas?'
+    id:        105,
+    category: 'abcd2',
+    title:    'How ddid I feed hamsters?',
+    name:     'Tom Dale adw',
+    email:    'abcd2@test.com',
+    phone:    '0413 892 872',
+    views:     11,
+    total_comments: 5,
+    created:  '2014-01-01T12:00:00',
+    updated:  '2014-01-01T12:00:00',
+    comments: [
+      {
+        id:        2,
+        email:    'test2@abc.com',
+        author:   'Tom Dale',
+        created:  '2014-01-02T12:00:00',
+        updated:  '2014-01-03T12:00:00',
+        content:  'Tomster cant eat using knife and a fork because his hands are \
+too small. We are looking for a way to feed him. Any ideas?'
+      },
+      {
+        id:        4,
+        email:    'test4@abc.com',
+        author:   'Tom Dale',
+        created:  '2014-01-04T12:00:00',
+        updated:  '2014-01-05T12:00:00',
+        content:  'Tomster cant eat using knife and a fork because his hands are \
+too small. We are looking for a way to feed him. Any ideas?'
+      }
+    ],
+    tags:     [
+      {
+        id:        9,
+        tag:      'Tag9',
+        created:  '2013-01-01T12:00:00',
+        updated:  '2013-01-01T12:00:00',
+        post:    105
+      },
+      {
+        id:        11,
+        tag:      'Tag11',
+        created:  '2013-01-01T12:00:00',
+        updated:  '2013-01-01T12:00:00',
+        post:    105
+      },
+      {
+        id:        13,
+        tag:      'Tag13',
+        created:  '2013-01-01T12:00:00',
+        updated:  '2013-01-01T12:00:00',
+        post:    105
+      }
+    ],
+    content:  'Tomster cant eat using knife and a fork because his hands are too small. We are looking for a way to feed him. Any ideas?'
   }]
 }

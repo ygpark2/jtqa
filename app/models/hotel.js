@@ -30,7 +30,7 @@ var Hotel = DS.Model.extend({
   proximityUnit: attr('string'),
   hotelInDestination: attr('boolean'),
   thumbNailUrl: attr('string'),
-  deepLink: attr('string'),
+  deepLink: attr('string')
   // RoomRateDetailsList
 
   // fullName: function() {

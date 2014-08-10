@@ -4,8 +4,9 @@ Tag = DS.Model.extend
   name: DS.attr 'string'
   created: DS.attr 'date'
   updated: DS.attr 'date'
-  posts: DS.hasMany 'post'
+  post: DS.belongsTo 'post', {polymorphic: true}
 
+###
 Tag.reopenClass
   FIXTURES: [
     {
@@ -51,5 +52,6 @@ Tag.reopenClass
       posts:    [102]
     }
   ]
- 
+###
+
 `export default Tag`

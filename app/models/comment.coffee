@@ -6,8 +6,9 @@ Comment = DS.Model.extend
   email: DS.attr 'string'
   created: DS.attr 'date'
   updated: DS.attr 'date'
-  comments: DS.hasMany 'comment'
+  post: DS.belongsTo 'post'
 
+###
 Comment.reopenClass
   FIXTURES: [
     {
@@ -48,5 +49,6 @@ Comment.reopenClass
                  we hamsters try to save them?'
     }
   ]
+###
 
 `export default Comment`

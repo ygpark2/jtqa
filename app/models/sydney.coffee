@@ -4,6 +4,7 @@
 Sydney = Post.extend
   category: DS.attr 'string'
 
+###
 Sydney.reopenClass
   FIXTURES: [
     {
@@ -37,5 +38,6 @@ Sydney.reopenClass
       content:  'I mean are totaly nuts? Is there any hope left for them? Should we hamsters try to save them?'
     }
   ]
+###
 
 `export default Sydney`

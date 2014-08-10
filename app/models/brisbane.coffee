@@ -4,6 +4,7 @@
 Brisbane = Post.extend
   category: DS.attr 'string'
 
+###
 Brisbane.reopenClass
   FIXTURES: [
     {
@@ -37,5 +38,6 @@ Brisbane.reopenClass
       content:  'I mean are totaly nuts? Is there any hope left for them? Should we hamsters try to save them?'
     }
   ]
+###
 
 `export default Brisbane`
