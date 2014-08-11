@@ -7,14 +7,16 @@ Obj = Ember.Mixin.create
     pageEnd = @get('pageEnd')
 
     new Ember.RSVP.Promise (resolve, reject) ->
-      console.log reject
+      console.log _this.get('model')
+      console.log "didRequestRange ================="
       resolve(_this.get('data').slice(pageStart - 1, pageEnd))
   ,
   didRequestTotal: () ->
     _this = @
 
     new Ember.RSVP.Promise (resolve, reject) ->
-      console.log reject
+      console.log _this.get('model')
+      console.log "didRequestTotal ================="
       resolve(_this.get('data').length)
 
 `export default Obj`

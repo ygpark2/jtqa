@@ -4,9 +4,10 @@
 
 Obj = Ember.Controller.extend SimplePaginationMixin, SimplePaginationArrayMixin,
   init: () ->
-    @_super()
+    @_super({'modelType': 'brisbane'})
     #  @set 'content', Ember.Object.create
     #    info: ""
+    console.log "loaded controller ~~~~~~~~"
   ,
   pageSize: 4,
   queryParams: ['page'],

@@ -10,8 +10,9 @@ module.exports = function(app) {
 
   var routeHandler = function(filePath) {
     return function(req, res) {
+      var content=fs.readFileSync(filePath, "utf8");
       res.type('application/json');
-      res.send(fs.readFileSync(filePath));
+      res.send( JSON.parse(content) );
     };
   };
 
