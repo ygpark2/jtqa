@@ -4,7 +4,8 @@ Tag = DS.Model.extend
   name: DS.attr 'string'
   created: DS.attr 'date'
   updated: DS.attr 'date'
-  post: DS.belongsTo 'post', {polymorphic: true}
+  posts: DS.hasMany 'post', {async: true}
+  # post: DS.belongsTo 'post', {polymorphic: true}
 
 ###
 Tag.reopenClass

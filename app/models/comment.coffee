@@ -6,7 +6,7 @@ Comment = DS.Model.extend
   email: DS.attr 'string'
   created: DS.attr 'date'
   updated: DS.attr 'date'
-  post: DS.belongsTo 'post'
+  post: DS.belongsTo 'post', {async: true}
 
 ###
 Comment.reopenClass
