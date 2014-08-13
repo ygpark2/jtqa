@@ -16,6 +16,8 @@ Obj = Ember.Mixin.create
 
     new Ember.RSVP.Promise (resolve, reject) ->
       console.log _this.get('model')
+      console.log _this.get('ptype')
+      console.log _this.get('page')
       console.log "didRequestTotal ================="
       resolve(_this.get('data').length)
 

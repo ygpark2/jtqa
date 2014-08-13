@@ -12,17 +12,17 @@ PostsIndexRoute = Ember.Route.extend
 
     (@store.find params.ptype).then (value) ->
       # on fulfillment
-      console.log "rsvp ================="
+      console.log "============ RSVP ============="
       console.log value
-      console.log "+++++++++++++++++++++++"
+      console.log "+++++++++++++++++++++++++++++++"
       return value
     , (reason) ->
       # on rejection
-      console.log "+++++++++++ error +++++++++++"
+      console.log "============ error ============"
       console.log reason
       console.log reason.message
       console.log reason.response
-      console.log "++++++++++++++++++++++++"
+      console.log "+++++++++++++++++++++++++++++++"
       return reason
 
     # console.log @store.find 'brisbane'
@@ -31,25 +31,25 @@ PostsIndexRoute = Ember.Route.extend
     # Optional controller: used only if exists
     # console.log @container
   ,
-  setupController: (controller, model) ->
-    @_super(controller, model)
+  setupController: (controller, model, params) ->
     # @controllerFor('posts.index').set('data', model);
+    # @_super(controller, model)
+    data = [{ title: "Harry Potter", price: 12.99}, {title: "Song Of Ice", price: 19.99}, {title: "Name Of The Wind",price: 10.99}, {title: "Redemption Ark",price: 21.99}]
     console.log "=============== setupController ==================="
     console.log controller
     console.log model
     console.log "=============== setupController ==================="
-    controller.set('data', [{ title: "Harry Potter", price: 12.99}, {title: "Song Of Ice", price: 19.99}, {title: "Name Of The Wind",price: 10.99}, {title: "Redemption Ark",price: 21.99}]) # @store.find @get('ptype'))
-
-###
+    controller.set 'model', model
+    controller.set 'data', data
+    controller.set 'ptype', params.ptype
   ,
   renderTemplate: (controller, model) ->
     console.log "=============== render ==================="
     console.log controller
     console.log "=============== render ==================="
     @render()
-    @render @get('postsTemplate'),
-      controller: @get('postsIndexController')
-      into: 'posts'
-###
+#    @render @get('postsTemplate'),
+#      controller: @get('postsIndexController')
+#      into: 'posts'
 
 `export default PostsIndexRoute`
