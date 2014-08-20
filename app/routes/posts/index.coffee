@@ -41,6 +41,8 @@ PostsIndexRoute = Ember.Route.extend
     console.log "=============== setupController ==================="
     controller.set 'model', model
     controller.set 'data', data
+    controller.set 'content', data
+    controller.set 'page', 1
     controller.set 'ptype', params.ptype
   ,
   renderTemplate: (controller, model) ->

@@ -1,0 +1,14 @@
+
+
+  <li {{bind-attr class=':previous isFirst:disabled'}}>
+    <a href="#" {{action 'previous'}}>{{paginationPrevious}}</a>
+  </li>
+  {{#each pages itemController='pagination'}}
+    <li {{bind-attr class='isActive:active'}}>
+      <a href="#" {{action 'setCurrent'}}>{{content}}</a>
+    </li>
+  {{/each}}
+  <li {{bind-attr class=':next isLast:disabled'}}>
+    <a href="#" {{action 'next'}}>{{paginationNext}}</a>
+  </li>
+
