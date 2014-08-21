@@ -1,15 +1,12 @@
 
-{{postType}}
   <li {{bind-attr class=':previous isFirst:disabled'}}>
     <a href="#" {{action 'previous'}}>{{paginationPrevious}}</a>
   </li>
   {{#each pages itemController='pagination'}}
     <li {{bind-attr class='isActive:active'}}>
-        {{#link-to 'posts' ptype (query-params page=content) action='setCurrent'}}{{content}}{{/link-to}}
-        {{ ptype }}
+        {{#link-to 'posts' ptype (query-params page=content) action=setCurrent}}{{content}}{{/link-to}}
     </li>
   {{/each}}
   <li {{bind-attr class=':next isLast:disabled'}}>
     <a href="#" {{action 'next'}}>{{paginationNext}}</a>
   </li>
-

@@ -6,10 +6,10 @@
         <a href="#">
             <div class="description">
                 <p class="title">{{title}}</p>
-                <p class="name">{{name}}€</p>
+                <p class="name">{{name}}</p>
             </div>
         </a>
     </li>
 {{/each}}
 
-{{pagination-pager count=15 current=2 itmCtr=controller postType=ptype}}
+{{pagination-pager count=15 current=2 itmCtr='pagination' postType=ptype}}

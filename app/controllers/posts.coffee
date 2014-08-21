@@ -1,6 +1,7 @@
 `import Ember from "ember"`
+# `import paginationController from "./pagination"`
 
-Obj = Ember.ArrayController.extend
+Obj = Ember.ArrayController.extend # paginationController
 #  needs: ['pagination'],
 #  content: {},
 #  pageSize: 4,

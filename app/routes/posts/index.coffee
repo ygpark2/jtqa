@@ -2,7 +2,7 @@
 
 PostsIndexRoute = Ember.Route.extend
   model: (params) ->
-    @store.find params.ptype
+    @store.find params.ptype, {page: 1}
   ,
   actions:
     queryParamsDidChange: (params) ->
@@ -12,8 +12,9 @@ PostsIndexRoute = Ember.Route.extend
       # do some funky stuff
   ,
   setupController: (controller, model, trans) ->
+    controller.set 'model', model
     controller.set 'ptype', trans.params['posts.index'].ptype
-    @controllerFor('pagination').set 'ptype', trans.params['posts.index'].ptype
+    # @controllerFor('pagination').set 'ptype', trans.params['posts.index'].ptype
     console.log "=============== setupController ==================="
     console.log controller
     console.log model
