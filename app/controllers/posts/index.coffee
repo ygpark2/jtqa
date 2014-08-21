@@ -1,28 +1,24 @@
 `import Ember from "ember"`
-`import SimplePaginationMixin from "../../mixins/SimplePaginationMixin"`
-`import SimplePaginationArrayMixin from "../../mixins/SimplePaginationArrayMixin"`
+# `import SimplePaginationMixin from "../../mixins/SimplePaginationMixin"`
+# `import SimplePaginationArrayMixin from "../../mixins/SimplePaginationArrayMixin"`
 
-Obj = Ember.ObjectController.extend #  SimplePaginationMixin, SimplePaginationArrayMixin,
-  # init: (data) ->
+Obj = Ember.ArrayController.extend #  SimplePaginationMixin, SimplePaginationArrayMixin,
+  init: (data) ->
+    console.log " ++++++ posts index init +++++"
+    console.log data
+    console.log @get 'ptype'
+    console.log " ++++++ posts index init +++++"
   #   @_super({'modelType': 'brisbane'})
-    #  @set 'content', Ember.Object.create
-    #    info: ""
+  #   @set 'content', Ember.Object.create
+  #   info: ""
   #   @set 'data', data
   #   console.log "loaded controller ~~~~~~~~"
-  # ,
-  content: {},
-  isActive: (->
-      return @get('content') == @get('parentController.current')
-  ).property('content', 'parentController.current'),
-  actions:
-    setCurrent: ->
-      @set('parentController.current', @get('content'))
   ,
-  pageSize: 4,
-  ptype: null,
-  queryParams: ['page', 'ptype'],
-
-  # data: []
-  # data: [{ title: "Harry Potter", price: 12.99}, {title: "Song Of Ice", price: 19.99}, {title: "Name Of The Wind",price: 10.99}, {title: "Redemption Ark",price: 21.99}, {title: "Leviathan Wakes",price: 10.99}, {title: "Eragon",price: 18.99}, {title: "The Elves",price: 12.99}, {title: "The Orks",price: 10.99}, {title: "The Trolls",price: 13.99},{title: "Harry Potter",price: 12.99}, {title: "Song Of Ice",price: 19.99}, {title: "Name Of The Wind",price: 10.99}, {title: "Redemption Ark",price: 21.99}, {title: "Leviathan Wakes",price: 10.99}, {title: "Eragon",price: 18.99}, {title: "The Elves",price: 12.99}, {title: "The Orks",price: 10.99}, {title: "The Trolls",price: 13.99}]
+  needs: ['pagination'],
+  lookupItemController: (obj) ->
+    console.log "============================="
+    console.log obj
+    console.log "============================="
+  # queryParams: ['page', 'ptype']
 
 `export default Obj`

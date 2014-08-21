@@ -28,7 +28,7 @@ Obj = Ember.Component.extend
 
   isLast: (->
     return @get('current') == @get('lastPage')
-  ).property('lastPage', 'current')
+  ).property('lastPage', 'current'),
 
   pages: (->
     count = @get('count')
@@ -36,18 +36,23 @@ Obj = Ember.Component.extend
   ).property('count'),
 
   click: (event) ->
+    console.log "------------------------------------------"
+    console.log event
+    console.log "------------------------------------------"
     # stop `#` from jumping to top of page
     event.preventDefault()
   ,
 
   actions:
     next: ->
+      console.log "next clicked !!!!!!!!!!!!!!!!!!!!!!!"
       if (!@get('isLast'))
         current = @get('current')
         @set('current', parseInt(current, 10) + 1)
     ,
 
     previous: ->
+      console.log "previous clicked !!!!!!!!!!!!!!!!!!!!!!!!"
       if (!@get('isFirst'))
         current = @get('current')
         @set('current', parseInt(current, 10) - 1)
