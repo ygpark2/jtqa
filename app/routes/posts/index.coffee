@@ -2,12 +2,15 @@
 
 PostsIndexRoute = Ember.Route.extend
   model: (params) ->
+    @set 'ptype', params.ptype
     @store.find params.ptype, {page: 1}
   ,
   actions:
     queryParamsDidChange: (params) ->
+      console.log @get 'ptype'
+      @store.find @get('ptype'), {page: params.page}
       console.log "query params changed!+=-"
-      console.log params
+      console.log params.page
       console.log "================================="
       # do some funky stuff
   ,
