@@ -1,15 +1,27 @@
 
 {{ ptype }}
 
-{{#each}}
+<h3>Ember Query Params: search</h3>
+
+<form {{action "search" on="submit"}}>
+  {{input value=searchField}}
+  {{input value=searchValue}}
+  <input type="submit" value="Search"/>
+</form>
+
+<ul>
+{{#each post in controller}}
     <li>
         <a href="#">
+        {{#link-to 'posts.show' post }}
             <div class="description">
-                <p class="title">{{title}}</p>
-                <p class="name">{{name}}</p>
+                <p class="title">{{post.id}}</p>
+                <p class="title">{{post.title}}</p>
+                <p class="name">{{post.name}}</p>
             </div>
-        </a>
+        {{/link-to}}
     </li>
 {{/each}}
+</ul>
 
 {{pagination-pager count=15 current=2 itmCtr='pagination' postType=ptype}}

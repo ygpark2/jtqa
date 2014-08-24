@@ -15,10 +15,30 @@ Obj = Ember.ArrayController.extend #  SimplePaginationMixin, SimplePaginationArr
   #   console.log "loaded controller ~~~~~~~~"
   # ,
   needs: ['pagination'],
+  queryParams: ['page', 'sortBy', 'queryKey', 'queryVal'],
+  queryKey: null,
+  queryVal: null,
+  searchField: Ember.computed.oneWay('queryKey'),
+  searchValue: Ember.computed.oneWay('queryVal'),
+  page: 1,
+  sortBy: 'createdAt',
+  sortProperties: (->
+    [@get('sortBy')]
+  ).property('sortBy'),
+  currentPathDidChange: (->
+    path = @get('currentPath')
+    console.log 'path changed to: ' + path
+  ).observes('currentPath'),
   lookupItemController: (obj) ->
     console.log "============================="
     console.log obj
     console.log "============================="
-  # queryParams: ['page', 'ptype']
+  ,
+  actions:
+    search: ->
+      @set 'queryKey', @get('searchField')
+      @set 'queryVal', @get('searchValue')
+      console.log @get('queryKey')
+      console.log @get('queryVal')
 
 `export default Obj`

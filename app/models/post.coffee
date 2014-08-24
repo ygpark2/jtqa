@@ -7,9 +7,9 @@ Post = DS.Model.extend
   email: DS.attr 'string'
   phone: DS.attr 'string'
   views: DS.attr 'number'
-  numcmt: DS.attr 'number'
-  created: DS.attr 'date'
-  updated: DS.attr 'date'
+  total_comments: DS.attr 'number'
+  created_at: DS.attr 'date'
+  updated_at: DS.attr 'date'
   tags: DS.hasMany 'tag', {async:true}
   comments: DS.hasMany 'comment', {async:true}
 

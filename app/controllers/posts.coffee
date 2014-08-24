@@ -1,15 +1,13 @@
 `import Ember from "ember"`
 # `import paginationController from "./pagination"`
 
-Obj = Ember.ArrayController.extend # paginationController
-#  needs: ['pagination'],
-#  content: {},
-#  pageSize: 4,
-#  ptype: null,
-#  queryParams: ['page', 'ptype'],
-  currentPathDidChange: (->
-    path = @get('currentPath')
-    console.log 'path changed to: ' + path
-  ).observes('currentPath')
+Obj = Ember.ArrayController.extend
+  init: ->
+    console.log "======= posts array controller loaded! ======"
+  #
+  # This is for posts controller
+  #
+
+console.log "------ posts array controller loaded !!!! ------"
 
 `export default Obj`
