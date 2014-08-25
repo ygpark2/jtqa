@@ -1,5 +1,44 @@
 <h3>New Post...</h3>
 
-<div class="post">
-  {{post-new post=model}}
-</div>
+<form class="uk-form uk-form-horizontal" {{action 'submit' on='submit'}}>
+<fieldset>
+  <legend>새글 쓰기</legend>
+    <div class="uk-form-row">
+      <label class="uk-form-label uk-text-center" for="form-h-title">Title</label>
+      <div class="uk-form-controls">
+        {{input type="text" id="form-h-title" class="uk-width-1-1" value=model.title placeholder="Title"}}
+      </div>
+    </div>
+    <div class="uk-form-row">
+      <label class="uk-form-label uk-text-center" for="form-h-name">Name</label>
+      <div class="uk-form-controls">
+        {{input type="text" id="form-h-name" class="uk-width-1-1" value=model.name placeholder="Name"}}
+      </div>
+    </div>
+    <div class="uk-form-row">
+      <label class="uk-form-label uk-text-center" for="form-h-email">Email</label>
+      <div class="uk-form-controls">
+        {{input type="text" id="form-h-email" class="uk-width-1-1" value=model.email placeholder="Email"}}
+      </div>
+    </div>
+    <div class="uk-form-row">
+      <label class="uk-form-label uk-text-center" for="form-h-tags">Tags</label>
+      <div class="uk-form-controls">
+        {{input type="text" id="form-h-tags" class="uk-width-1-1" value=model.tags placeholder="Tags"}}
+      </div>
+    </div>
+    <div class="uk-form-row">
+      <label class="uk-form-label uk-text-center" for="form-h-content">Content</label>
+      <div class="uk-form-controls">
+        {{textarea id="form-h-content" cols="100" rows="10" value=model.content placeholder="Content"}}
+      </div>
+    </div>
+    <div class="uk-form-row">
+      <label class="uk-form-label uk-text-center" for="form-h-content"></label>
+      <div class="uk-form-controls">
+        <button type="submit" class="uk-button uk-button-large">{{saveText}}</button>
+        <button type="button" class="uk-button uk-button-large" {{action 'cancel'}}>{{cancelText}}</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

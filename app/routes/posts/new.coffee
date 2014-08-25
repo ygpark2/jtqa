@@ -8,6 +8,13 @@ PostNewRoute = Ember.Route.extend
     # @store.createRecord params.ptype, { type: params.ptype }
     @store.createRecord params.ptype, { category: "default", views: 0, total_comments: 0 }
   ,
+  serialize: (model) ->
+    console.log "--------- serialize ------------"
+    console.log model.get('constructor.typeKey')
+    console.log "--------------------------------"
+    console.log model
+    { ptype: model.get('constructor.typeKey') }
+  ,
   actions:
     save: (params, transition) ->
       console.log "save action called"

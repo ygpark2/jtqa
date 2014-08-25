@@ -1,17 +1,26 @@
 
 <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 
+    <div class="uk-grid">
+      <div class="uk-width-medium-1-1">
     <!-- Fixed navbar -->
     {{ partial "partial/header" }}
-
-    <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-medium-1-1">
-			{{outlet}}
+  		</div>
+    </div>
+    <div class="uk-grid">
+      <div class="uk-width-medium-1-1">
+        <div class="uk-panel uk-panel-box">
+			    {{outlet}}
+        </div>
   		</div>
     </div>
 
-    <hr class="uk-grid-divider"></hr>
-
-    {{ partial "partial/footer" }}
+    <div class="uk-grid">
+        <div class="uk-width-medium-1-1">
+          <div class="uk-panel uk-panel-box">
+            {{ partial "partial/footer" }}
+          </div>
+        </div>
+    </div>
 
 </div>

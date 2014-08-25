@@ -7,6 +7,7 @@ Obj = Ember.ArrayController.extend
   #
   # This is for posts controller
   #
+  itemController: 'post'
 
 console.log "------ posts array controller loaded !!!! ------"
 
