@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 PostNewRoute = Ember.Route.extend
-  model: (params, transition) ->
+  model: (params, transition, queryParams) ->
     console.log "=================================="
     console.log params
     console.log "=================================="
@@ -15,21 +15,20 @@ PostNewRoute = Ember.Route.extend
     console.log model
     { ptype: model.get('constructor.typeKey') }
   ,
+  setupController: (controller, model, trans) ->
+    controller.set 'model', model
+    controller.set 'ptype', trans.params['posts.new'].ptype
+  ,
   actions:
-    save: (params, transition) ->
-      console.log "save action called"
-      console.log "=================="
-      console.log params
-      console.log "=================="
+    save: ->
       @currentModel.save().then (post) ->
-        console.log post
-        # @transitionTo 'post.show', post
+        @transitionTo 'post.show', post
     ,
-    cancel: (params, transition) ->
-      console.log "cancel action called"
-      console.log "=================="
-      console.log params
-      console.log "=================="
-      # @transitionTo 'posts.index'
+    cancel: ->
+      console.log "========================"
+      console.log @currentModel
+      console.log @currentModel.get('constructor.typeKey')
+      console.log "========================"
+      # @transitionTo 'posts.index', @currentModel.get('constructor.typeKey')
 
 `export default PostNewRoute`

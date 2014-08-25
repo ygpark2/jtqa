@@ -10,7 +10,7 @@ Post = DS.Model.extend
   total_comments: DS.attr 'number'
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
-  tags: DS.hasMany 'tag', {async:true}
+  tags: DS.attr 'string'
   comments: DS.hasMany 'comment', {async:true}
 
 ###
