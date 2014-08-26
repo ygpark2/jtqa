@@ -9,21 +9,36 @@
   <input type="submit" value="Search"/>
 </form>
 
-<ul>
-{{#each post in controller}}
-    <li>
-        <a href="#">
-        {{#link-to 'posts.show' post }}
-            <div class="description">
-                <p class="title">{{post.id}}</p>
-                <p class="title">{{post.title}}</p>
-                <p class="name">{{post.name}}</p>
-            </div>
-        {{/link-to}}
-    </li>
-{{/each}}
-</ul>
 
-{{#link-to 'posts.new' ptype }} 글쓰기 {{/link-to}}
+<table class="uk-table uk-table-hover">
+<caption></caption>
+<thead>
+<tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>코멘트</th>
+    <th>읽음</th>
+    <th>글쓴이</th>
+    <th>글쓴 시간</th>
+</tr>
+</thead>
+<tbody>
+{{#each post in controller}}
+<tr>
+    <td>{{post.id}}</td>
+    <td>{{#link-to 'posts.show' post }}{{post.title}}{{/link-to}}</td>
+    <td>{{post.total_comments}}</td>
+    <td>{{post.views}}</td>
+    <td>{{post.name}}</td>
+    <td>{{post.created_at}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+<div class="uk-clearfix">
+  <div class="uk-float-right">{{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}</div>
+</div>
+
 
 {{pagination-pager count=15 current=2 itmCtr='pagination' postType=ptype}}

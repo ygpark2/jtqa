@@ -8,6 +8,10 @@ PostViewRoute = Ember.Route.extend
   model: (params) ->
     @set "ptype", params.ptype
     @store.find params.ptype, params.pid
+  setupController: (controller, model, trans) ->
+    controller.set 'model', model
+    controller.set 'ptype', trans.params['posts.show'].ptype
+  ,
   serialize: (model) ->
     console.log "--------- serialize ------------"
     console.log model.get('constructor.typeKey')

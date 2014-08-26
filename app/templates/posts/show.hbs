@@ -1,7 +1,34 @@
 <h3>Post Show ...</h3>
 
-{{ model.title }}
+<div class="uk-grid uk-grid-divider" data-uk-grid-match>
+<div class="uk-width-medium-1-1" style="min-height: 15px;">제목</div>
+<div class="uk-width-medium-1-8" style="min-height: 15px;">{{ model.title }}</div>
+</div>
+<div class="uk-grid uk-grid-divider" data-uk-grid-match="">
+<div class="uk-width-medium-1-1" style="min-height: 15px;">제목</div>
+<div class="uk-width-medium-1-8" style="min-height: 15px;">{{ model.title }}</div>
+</div>
+<div class="uk-grid uk-grid-divider" data-uk-grid-match="">
+<div class="uk-width-medium-1-1" style="min-height: 15px;">이름</div>
+<div class="uk-width-medium-1-8" style="min-height: 15px;">{{ model.name }}</div>
+</div>
+<div class="uk-grid uk-grid-divider" data-uk-grid-match="">
+<div class="uk-width-medium-1-1" style="min-height: 15px;">이메일</div>
+<div class="uk-width-medium-1-8" style="min-height: 15px;">{{ model.email }}</div>
+</div>
+<div class="uk-grid uk-grid-divider" data-uk-grid-match="">
+<div class="uk-width-medium-1-1" style="min-height: 10px;">태그</div>
+<div class="uk-width-medium-1-8" style="min-height: 10px;">{{ model.tags }}</div>
+</div>
+<div class="uk-grid uk-grid-divider" data-uk-grid-match="">
+<div class="uk-width-medium-1-1" style="min-height: 10px;">내용</div>
+<div class="uk-width-medium-1-8" style="min-height: 10px;">{{ model.content }}</div>
+</div>
 
-{{ model.content }}
-
-{{#link-to 'posts.edit' model }} 수정 {{/link-to}}
+<div class="uk-clearfix">
+    <div class="uk-float-right">
+        {{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}
+        {{#link-to 'posts.index' ptype class="uk-button"}} 목록 {{/link-to}}
+        {{#link-to 'posts.edit' model class="uk-button"}} 수정 {{/link-to}}
+    </div>
+</div>
