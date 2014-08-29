@@ -1,12 +1,11 @@
 `import DS from "ember-data"`
 
 Comment = DS.Model.extend
-  content: DS.attr 'string'
-  author: DS.attr 'string'
-  email: DS.attr 'string'
+  comment: DS.attr 'string'
+  title: DS.attr 'string'
   created: DS.attr 'date'
   updated: DS.attr 'date'
-  post: DS.belongsTo 'post', {async: true}
+  post: DS.belongsTo 'post'
 
 ###
 Comment.reopenClass

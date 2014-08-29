@@ -27,18 +27,18 @@ Obj = Ember.ArrayController.extend #  SimplePaginationMixin, SimplePaginationArr
   ).property('sortBy'),
   currentPathDidChange: (->
     path = @get('currentPath')
-    console.log 'path changed to: ' + path
+    Ember.Logger.debug 'path changed to: ' + path
   ).observes('currentPath'),
   lookupItemController: (obj) ->
-    console.log "============================="
-    console.log obj
-    console.log "============================="
+    Ember.Logger.debug "============================="
+    Ember.Logger.debug obj
+    Ember.Logger.debug "============================="
   ,
   actions:
     search: ->
       @set 'queryKey', @get('searchField')
       @set 'queryVal', @get('searchValue')
-      console.log @get('queryKey')
-      console.log @get('queryVal')
+      Ember.Logger.debug @get('queryKey')
+      Ember.Logger.debug @get('queryVal')
 
 `export default Obj`

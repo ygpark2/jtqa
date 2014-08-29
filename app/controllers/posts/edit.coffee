@@ -8,17 +8,17 @@ Obj = Ember.Controller.extend
 
   actions:
     submit: ->
-      console.log @model
+      Ember.Logger.debug @model
       _this = @
       @model.save().then (post) ->
-        console.log post
+        Ember.Logger.debug post
         _this.transitionTo 'posts.show', post
     ,
     cancel: ->
-      console.log "================ cancel action called ==============="
+      Ember.Logger.debug "================ cancel action called ==============="
+      Ember.Logger.debug ptype
+      Ember.Logger.debug "------------------------------------------------------"
       ptype = @get 'ptype'
-      console.log ptype
-      console.log "------------------------------------------------------"
       @transitionTo 'posts.index', @get 'ptype'
 
 `export default Obj`
