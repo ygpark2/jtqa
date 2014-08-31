@@ -15,12 +15,13 @@ Obj = Ember.ArrayController.extend #  SimplePaginationMixin, SimplePaginationArr
   #   console.log "loaded controller ~~~~~~~~"
   # ,
   needs: ['pagination'],
-  queryParams: ['page', 'sortBy', 'queryKey', 'queryVal'],
+  queryParams: ['page', 'pageSize', 'sortBy', 'queryKey', 'queryVal'],
   queryKey: null,
   queryVal: null,
   searchField: Ember.computed.oneWay('queryKey'),
   searchValue: Ember.computed.oneWay('queryVal'),
   page: 1,
+  pageSize: 10,
   sortBy: 'createdAt',
   sortProperties: (->
     [@get('sortBy')]

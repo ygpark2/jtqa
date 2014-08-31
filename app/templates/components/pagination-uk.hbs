@@ -1,0 +1,30 @@
+
+<ul {{bind-attr class=':uk-pagination'}}>
+  <li {{bind-attr class=':previous canStepBackward:uk-disabled'}}>
+    {{#if canStepBackward}}
+      <a href="#" {{action 'stepBackward'}}> <i class="uk-icon-angle-double-left"></i> </a>
+    {{else}}
+      <span><i class="uk-icon-angle-double-left"></i></span>
+    {{/if}}
+  </li>
+  {{#each item in pageItems}}
+    {{#if item.ellipses}}
+      <li><span> &hellip; </span></li>
+    {{else}}
+      <li {{bind-attr class='item.current:uk-active'}}>
+        {{#if item.current}}
+            <span>{{item.page}}</span>
+        {{else}}
+            {{#link-to 'posts' ptype (query-params page=item.page) action=pageClicked}}{{item.page}}{{/link-to}}
+        {{/if}}
+      </li>
+    {{/if}}
+  {{/each}}
+  <li {{bind-attr class=':next canStepForward:uk-disabled'}}>
+    {{#if canStepForward}}
+      <a href="#" {{action 'stepForward'}}> <i class="uk-icon-angle-double-right"></i> </a>
+    {{else}}
+      <span><i class="uk-icon-angle-double-right"></i></span>
+    {{/if}}
+  </li>
+</ul>

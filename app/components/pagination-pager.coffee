@@ -2,7 +2,8 @@
 
 Obj = Ember.Component.extend
   tagName: 'ul',
-  classNameBindings: ['pager:pager:pagination', 'paginationSizeClass'],
+  classNameBindings: ['uikit:uk-pagination', 'paginationSizeClass'],
+  uikit: true,
   pager: false,
   pagerNext: 'Next',
   pagerPrevious: 'Previous',
@@ -10,6 +11,7 @@ Obj = Ember.Component.extend
   paginationNext: '>>',
   firstPage: 1,
   current: 1,
+  windowSize: 3,
   lastPage: Ember.computed.alias('count'),
 
   currentPage: (->
@@ -19,7 +21,7 @@ Obj = Ember.Component.extend
   paginationSizeClass: (->
     size = @get('size')
     pager = @get('pager')
-    return !pager && size && (size == 'lg' || size == 'sm') ? 'pagination-' + size : '';
+    return !pager && size && (size == 'lg' || size == 'sm') ? 'pagination-' + size : ''
   ).property('paginationSize'),
 
   isFirst: (->
@@ -32,27 +34,31 @@ Obj = Ember.Component.extend
 
   pages: (->
     count = @get('count')
-    x for x in [1..count]
+    current = @get('current')
+    Ember.Logger.debug "current => " + current
+    startWindow = current - @get('windowSize')
+    endWindow = current + @get('windowSize')
+    if startWindow <= @get('firstPage')
+      startWindow = @get('firstPage')
+    if endWindow >= @get('lastPage')
+      endWindow = @get('lastPage')
+    Ember.Logger.debug "startWindow => " + startWindow
+    Ember.Logger.debug "endWindow => " + endWindow
+    x for x in [startWindow..endWindow]
   ).property('count'),
 
   click: (event) ->
-    console.log "------------------------------------------"
-    console.log event
-    console.log "------------------------------------------"
     # stop `#` from jumping to top of page
     event.preventDefault()
   ,
 
   actions:
     next: ->
-      console.log "next clicked !!!!!!!!!!!!!!!!!!!!!!!"
       if (!@get('isLast'))
         current = @get('current')
         @set('current', parseInt(current, 10) + 1)
     ,
-
     previous: ->
-      console.log "previous clicked !!!!!!!!!!!!!!!!!!!!!!!!"
       if (!@get('isFirst'))
         current = @get('current')
         @set('current', parseInt(current, 10) - 1)

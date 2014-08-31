@@ -7,21 +7,23 @@ Obj = Ember.ObjectController.extend
   ,
   ptype: null,
   isActive: (->
-    console.log "is active!!!!!!!!!!!!!!!!!!"
-    @get('content') == @get('parentController.current')
+    Ember.Logger.debug "!!!!!!!!!!!!!! is active !!!!!!!!!!!!!!!!!!"
+    Ember.Logger.debug "parentController.current " + @get('parentController.current')
+    Ember.Logger.debug "content " + @get('content')
+    return @get('content') == @get('parentController.current')
   ).property('content', 'parentController.current'),
   actions:
     setCurrent: ->
       postModel = @store.find @get('parentController.postType')
       postModel.reload()
-      console.log "--------------------------------------"
-      console.log @get('parentController.current')
-      console.log "--------------------------------------"
-      console.log @get('parentController')
-      console.log "--------------------------------------"
-      console.log @get('parentController.postType')
-      console.log "--------------------------------------"
-      console.log "this is current clicked !!!!!!!!!!!!!"
+      Ember.Logger.debug "--------------------------------------"
+      Ember.Logger.debug @get('parentController.current')
+      Ember.Logger.debug "--------------------------------------"
+      Ember.Logger.debug @get('parentController')
+      Ember.Logger.debug "--------------------------------------"
+      Ember.Logger.debug @get('parentController.postType')
+      Ember.Logger.debug "--------------------------------------"
+      Ember.Logger.debug "this is current clicked !!!!!!!!!!!!!"
       @set('parentController.current', @get('content'))
 
 `export default Obj`

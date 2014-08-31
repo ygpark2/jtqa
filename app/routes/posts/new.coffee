@@ -2,17 +2,17 @@
 
 PostNewRoute = Ember.Route.extend
   model: (params, transition, queryParams) ->
-    console.log "=================================="
-    console.log params
-    console.log "=================================="
+    Ember.Logger.debug "=================================="
+    Ember.Logger.debug params
+    Ember.Logger.debug "=================================="
     # @store.createRecord params.ptype, { type: params.ptype }
     @store.createRecord params.ptype, { category: "default", views: 0, total_comments: 0 }
   ,
   serialize: (model) ->
-    console.log "--------- serialize ------------"
-    console.log model.get('constructor.typeKey')
-    console.log "--------------------------------"
-    console.log model
+    Ember.Logger.debug "--------- serialize ------------"
+    Ember.Logger.debug model.get('constructor.typeKey')
+    Ember.Logger.debug "--------------------------------"
+    Ember.Logger.debug model
     { ptype: model.get('constructor.typeKey') }
   ,
   setupController: (controller, model, trans) ->
@@ -25,10 +25,10 @@ PostNewRoute = Ember.Route.extend
         @transitionTo 'post.show', post
     ,
     cancel: ->
-      console.log "========================"
-      console.log @currentModel
-      console.log @currentModel.get('constructor.typeKey')
-      console.log "========================"
+      Ember.Logger.debug "========================"
+      Ember.Logger.debug @currentModel
+      Ember.Logger.debug @currentModel.get('constructor.typeKey')
+      Ember.Logger.debug "========================"
       # @transitionTo 'posts.index', @currentModel.get('constructor.typeKey')
 
 `export default PostNewRoute`

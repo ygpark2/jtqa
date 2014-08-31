@@ -4,7 +4,7 @@ Obj = Ember.Controller.extend
 
   actions:
     register: ->
-      _this = this
+      _this = @
       data = @getProperties "email", "password", "password_confirmation"
 
       if not Ember.isEmpty(data.email) and not Ember.isEmpty(data.password)

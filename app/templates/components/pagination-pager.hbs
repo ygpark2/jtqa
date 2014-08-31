@@ -1,12 +1,24 @@
 
-  <li {{bind-attr class=':previous isFirst:disabled'}}>
+<li {{bind-attr class=':previous isFirst:uk-disabled'}}>
+  {{#if isFirst}}
+    <span>{{paginationPrevious}}</span>
+  {{else}}
     <a href="#" {{action 'previous'}}>{{paginationPrevious}}</a>
-  </li>
-  {{#each pages itemController='pagination'}}
-    <li {{bind-attr class='isActive:active'}}>
+  {{/if}}
+</li>
+{{#each pages itemController='pagination'}}
+  <li {{bind-attr class='isActive:uk-active'}}>
+    {{#if isActive}}
+        <span>{{content}}</span>
+    {{else}}
         {{#link-to 'posts' ptype (query-params page=content) action=setCurrent}}{{content}}{{/link-to}}
-    </li>
-  {{/each}}
-  <li {{bind-attr class=':next isLast:disabled'}}>
-    <a href="#" {{action 'next'}}>{{paginationNext}}</a>
+    {{/if}}
   </li>
+{{/each}}
+<li {{bind-attr class=':next isLast:uk-disabled'}}>
+  {{#if isLast}}
+    <span>{{paginationNext}}</span>
+  {{else}}
+    <a href="#" {{action 'next'}}>{{paginationNext}}</a>
+  {{/if}}
+</li>

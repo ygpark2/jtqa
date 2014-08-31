@@ -1,6 +1,11 @@
 `import Ember from "ember"`
 
 Obj = Ember.Controller.extend
+  init: ->
+    Ember.Logger.debug "--------------------------------------"
+    Ember.Logger.debug Ember.computed.alias('model.tags')
+    Ember.Logger.debug "--------------------------------------"
+  tag_list: Ember.computed.mapBy('model.tags', 'name')
   saveText: '수정 하기',
   cancelText: '취소',
   saveAction: 'save',

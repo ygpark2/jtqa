@@ -30,7 +30,7 @@
     <td>{{post.total_comments}}</td>
     <td>{{post.views}}</td>
     <td>{{post.name}}</td>
-    <td>{{post.created_at}}</td>
+    <td>{{date-format post.created_at 'MMMM Do, YYYY [at] h:mm'}}</td>
 </tr>
 {{/each}}
 </tbody>
@@ -40,5 +40,7 @@
   <div class="uk-float-right">{{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}</div>
 </div>
 
+{{pagination-uk currentPage=page totalPages=15 ptype=ptype}}
 
-{{pagination-pager count=15 current=2 itmCtr='pagination' postType=ptype}}
+<!--
+-->

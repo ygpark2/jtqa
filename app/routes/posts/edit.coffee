@@ -2,9 +2,9 @@
 
 PostEditRoute = Ember.Route.extend
   beforeModel: (transition) ->
-    console.log "---------- beforeMOdel ----------"
-    console.log transition
-    console.log "---------------------------------"
+    Ember.Logger.debug "---------- beforeMOdel ----------"
+    Ember.Logger.debug transition
+    Ember.Logger.debug "---------------------------------"
   ,
   model: (params) ->
     @set "ptype", params.ptype
@@ -13,29 +13,34 @@ PostEditRoute = Ember.Route.extend
   setupController: (controller, model, trans) ->
     controller.set 'model', model
     controller.set 'ptype', trans.params['posts.edit'].ptype
+    Ember.Logger.debug "================= setupController =============="
+    Ember.Logger.debug model
+    Ember.Logger.debug model.get('tags')
+    Ember.Logger.debug [].concat(model.get('tags')).join(", ")
+    Ember.Logger.debug "================= setupController =============="
   ,
   serialize: (model) ->
-    console.log "--------- serialize ------------"
-    console.log model.get('constructor.typeKey')
-    console.log "--------------------------------"
-    console.log model
+    Ember.Logger.debug "--------- serialize ------------"
+    Ember.Logger.debug model.get('constructor.typeKey')
+    Ember.Logger.debug "--------------------------------"
+    Ember.Logger.debug model
     { ptype: model.get('constructor.typeKey'), pid: model.get('id') }
   ,
   actions:
     save: (params) ->
-      console.log "save action called"
-      console.log "=================="
-      console.log params
-      console.log "=================="
+      Ember.Logger.debug "save action called"
+      Ember.Logger.debug "=================="
+      Ember.Logger.debug params
+      Ember.Logger.debug "=================="
       @currentModel.save().then (post) ->
-        console.log post
+        Ember.Logger.debug post
         # @transitionTo 'post.show', post
     ,
     cancel: (params) ->
-      console.log "cancel action called"
-      console.log "=================="
-      console.log params
-      console.log "=================="
+      Ember.Logger.debug "cancel action called"
+      Ember.Logger.debug "=================="
+      Ember.Logger.debug params
+      Ember.Logger.debug "=================="
       # @transitionTo 'posts.index'
 
 `export default PostEditRoute`
