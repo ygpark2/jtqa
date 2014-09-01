@@ -14,7 +14,11 @@ Obj = Ember.Controller.extend
   actions:
     submit: ->
       Ember.Logger.debug @model
+      Ember.Logger.debug @model.tags
+      Ember.Logger.debug "-----------------------------------------"
       _this = @
+      Ember.Logger.debug "tag list => " + @get 'tag_list'
+      # Ember.Logger.debug @model.find 'tags', { name: "home" }
       @model.save().then (post) ->
         Ember.Logger.debug post
         _this.transitionTo 'posts.show', post
