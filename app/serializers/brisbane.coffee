@@ -20,9 +20,13 @@ Obj = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
 
     relationshipType = DS.RelationshipChange.determineRelationshipType(record.constructor, relationship)
 
+    data = record.get("data.#{key}")
+    Ember.Logger.debug "-------------> data <------------------"
+    Ember.Logger.debug data
+    Ember.Logger.debug "---------------------------------------"
     # http://stackoverflow.com/questions/21976329/serialising-async-hasmany-relationships
     if (relationshipType == 'manyToNone' || relationshipType == 'manyToMany' || relationshipType == 'manyToOne')
-        json[key] = Ember.get(record, key).mapBy('id')
+        # json[key] = Ember.get(record, key).mapBy('id')
         Ember.Logger.debug "-------> json <----------"
         Ember.Logger.debug json
         # TODO support for polymorphic manyToNone and manyToMany
