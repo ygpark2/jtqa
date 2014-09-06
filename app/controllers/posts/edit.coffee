@@ -7,14 +7,20 @@ Obj = Ember.Controller.extend
     Ember.Logger.debug "--------------------------------------"
     tag_names = ""
     tags = @get('tags')
-    @get('model.tags').forEach (item, index, enumerable) ->
-      tags.push item.get('name')
-      tag_names += item.get('name') + ", "
-    @set "tag_list", tag_names
+    # @get('model.tags').forEach (item, index, enumerable) ->
+    #   tags.push item.get('name')
+    #   tag_names += item.get('name') + ", "
+    # @set "tag_list", tag_names
     # Ember.computed.mapBy('model.tags', 'name').forEach (item, index, enumerable) ->
     #   Ember.Logger.debug item
   tags: []
-  tag_list: ""
+  tag_array: Ember.computed.mapBy('model.tags', 'name')
+  tag_list: Ember.computed.uniq('tag_array')
+  observeTagList: (->
+    console.log "---------------------------"
+    console.log @get("tag_list")
+    console.log "---------------------------"
+  ).observes('tag_list')
   saveText: '수정 하기'
   cancelText: '취소'
   saveAction: 'save'
