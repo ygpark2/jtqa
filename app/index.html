@@ -10,22 +10,21 @@
     {{BASE_TAG}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="assets/jtqa.css">
 
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ8OGhjGhQh11OWCwcLmUskmwMPoIZpFA"></script> -->
     <!--  <script src='https://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script> -->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3"></script>
-
   </head>
   <body>
-    <script type="application/javascript">
+    <script>
       window.JtqaENV = {{ENV}};
-      // window.ENV = window.JtqaENV;
+      window.ENV = window.JtqaENV;
       window.EmberENV = window.JtqaENV.EmberENV;
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/jtqa.js"></script>
-    <script type="application/javascript">
+    <script>
       window.Jtqa = require('jtqa/app')['default'].create(JtqaENV.APP);
     </script>
   </body>

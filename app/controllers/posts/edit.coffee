@@ -5,8 +5,6 @@ Obj = Ember.Controller.extend
     Ember.Logger.debug "--------------------------------------"
     Ember.Logger.debug Ember.computed.alias('model.tags')
     Ember.Logger.debug "--------------------------------------"
-    tag_names = ""
-    tags = @get('tags')
     # @get('model.tags').forEach (item, index, enumerable) ->
     #   tags.push item.get('name')
     #   tag_names += item.get('name') + ", "
@@ -28,9 +26,10 @@ Obj = Ember.Controller.extend
   actions:
     submit: ->
       _this = @
-      Ember.Logger.debug "tag list => " + @get 'tag_list'
       @model.save().then (post) ->
+        Ember.Logger.debug "+++++++++++++++++++++++++++"
         Ember.Logger.debug post
+        Ember.Logger.debug "+++++++++++++++++++++++++++"
         _this.transitionToRoute 'posts.show', post
     ,
     cancel: ->
