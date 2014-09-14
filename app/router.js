@@ -39,6 +39,7 @@ Router.map(function() {
         this.route('show', { path: '/:ptype/show/:pid' });
         this.route('new', { path: '/:ptype/new' });
         this.resource('comments', function() {
+            this.route('index');
             this.route('new');
         });
     });

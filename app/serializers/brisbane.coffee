@@ -23,7 +23,7 @@ Obj = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
     delete json['created_at']
     delete json['updated_at']
     if relationshipType is 'manyToNone' or relationshipType is 'manyToMany' or relationshipType is 'manyToOne'
-      related = @getRelated(record, key)
+      # related = @getRelated(record, key)
       Ember.Logger.debug "-------> json <----------"
       Ember.Logger.debug json
       # TODO support for polymorphic manyToNone and manyToMany

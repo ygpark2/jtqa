@@ -26,6 +26,7 @@ Obj = Ember.Controller.extend
   actions:
     submit: ->
       _this = @
+      @model.set 'tag_list', @get('tag_list')
       @model.save().then (post) ->
         Ember.Logger.debug "+++++++++++++++++++++++++++"
         Ember.Logger.debug post
