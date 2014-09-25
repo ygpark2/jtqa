@@ -1,6 +1,6 @@
 `import Ember from "ember"`
 
-PostsIndexRoute = Ember.Route.extend
+CommentsIndexRoute = Ember.Route.extend
   queryParams:
     page:
       refreshModel: true,
@@ -34,13 +34,13 @@ PostsIndexRoute = Ember.Route.extend
       # do some funky stuff
 
   setupController: (controller, model, trans) ->
-    controller.set 'model', model
+    controller.set 'model', model.comments
     controller.set 'ptype', trans.params['posts.index'].ptype
     # @controllerFor('pagination').set 'ptype', trans.params['posts.index'].ptype
-    Ember.Logger.debug "=============== setupController ==================="
+    Ember.Logger.debug "=============== setupController For Comment ==================="
     Ember.Logger.debug controller
     Ember.Logger.debug model
     Ember.Logger.debug trans.params['posts.index']
-    Ember.Logger.debug "=============== setupController ==================="
+    Ember.Logger.debug "=============== setupController For Comment ==================="
 
-`export default PostsIndexRoute`
+`export default CommentsIndexRoute`

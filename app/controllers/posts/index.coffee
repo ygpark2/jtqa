@@ -14,22 +14,6 @@ Obj = Ember.ArrayController.extend #  SimplePaginationMixin, SimplePaginationArr
   #   @set 'data', data
   #   console.log "loaded controller ~~~~~~~~"
   # ,
-  needs: ['pagination'],
-  queryParams: ['page', 'pageSize', 'sortBy', 'queryKey', 'queryVal'],
-  queryKey: null,
-  queryVal: null,
-  searchField: Ember.computed.oneWay('queryKey'),
-  searchValue: Ember.computed.oneWay('queryVal'),
-  page: 1,
-  pageSize: 10,
-  sortBy: 'createdAt',
-  sortProperties: (->
-    [@get('sortBy')]
-  ).property('sortBy'),
-  currentPathDidChange: (->
-    path = @get('currentPath')
-    Ember.Logger.debug 'path changed to: ' + path
-  ).observes('currentPath'),
   lookupItemController: (obj) ->
     Ember.Logger.debug "============================="
     Ember.Logger.debug obj
@@ -37,8 +21,11 @@ Obj = Ember.ArrayController.extend #  SimplePaginationMixin, SimplePaginationArr
   ,
   actions:
     search: ->
-      @set 'queryKey', @get('searchField')
-      @set 'queryVal', @get('searchValue')
+      Ember.Logger.debug @model.query.queryKey
+      Ember.Logger.debug @model.query.queryVal
+      @set @model.query.queryKey, @get('searchField')
+      @set @model.query.queryVal, @get('searchValue')
+      Ember.Logger.debug @model
       Ember.Logger.debug @get('queryKey')
       Ember.Logger.debug @get('queryVal')
 

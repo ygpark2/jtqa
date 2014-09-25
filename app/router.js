@@ -33,6 +33,18 @@ Router.map(function() {
 
     // this.resource('posts', { path: 'posts/:ptype' });
 
+    this.resource('posts', { path: 'posts/:ptype' }, function() {
+        // this.route('index');
+        this.route('new');
+        this.resource('post', { path: ':pid' }, function() {
+            this.route('edit');
+            this.resource('comments', function() {
+                this.route('new');
+            });
+        });
+    });
+
+    /*
     this.resource('posts', { path: 'posts' }, function() {
         this.route('index', { path: '/:ptype' });
         this.route('edit', { path: '/:ptype/edit/:pid' });
@@ -44,7 +56,7 @@ Router.map(function() {
         });
     });
 
-    /*
+
      this.resource('posts', function() {
      this.route("index");
      this.route("new");
