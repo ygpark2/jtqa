@@ -12,7 +12,7 @@ PostsRoute = Ember.Route.extend
     searchVal:
       refreshModel: true
   model: (params) ->
-    Ember.Logger.debug "======== model params ============"
+    Ember.Logger.debug "======== posts model params ============"
     Ember.Logger.debug params
     postType = params.ptype
     delete params['ptype']

@@ -1,22 +1,17 @@
 `import Ember from "ember"`
 
-PostViewRoute = Ember.Route.extend
-  beforeModel: (transition) ->
-    console.log "---------- beforeMOdel ----------"
-    console.log transition
-    console.log "---------------------------------"
+PostIndexRoute = Ember.Route.extend
   model: (params) ->
-    @set "ptype", params.ptype
-    @store.find params.ptype, params.pid
+    @modelFor('post')
   setupController: (controller, model, trans) ->
     controller.set 'model', model
-    controller.set 'ptype', trans.params['posts.show'].ptype
-  serialize: (model) ->
-    console.log "--------- serialize ------------"
-    console.log model.get('constructor.typeKey')
-    console.log "--------------------------------"
-    console.log model
-    { ptype: model.get('constructor.typeKey'), pid: model.get('id') }
+    controller.set 'ptype', model.type.typeKey
+  serialize: (model, params) ->
+    Ember.Logger.debug "--------- serialize ------------"
+    Ember.Logger.debug model
+    Ember.Logger.debug "--------------------------------"
+    Ember.Logger.debug params
+    { ptype: 'brisbane', pid: params.pid }
   actions:
     commentSave: ->
       comment = @store.createRecord 'comment',
@@ -26,8 +21,8 @@ PostViewRoute = Ember.Route.extend
       Ember.Logger.debug @currentModel.get('comments').adapter
       Ember.Logger.debug "------------------------------------"
       @currentModel.get('comments').pushObject(comment).save().then (post) ->
-        @transitionTo 'post.show', post
+        @transitionTo 'post.index', post
     commentCancel: ->
       @transitionTo 'participants.index'
 
-`export default PostViewRoute`
+`export default PostIndexRoute`

@@ -1,12 +1,13 @@
 `import Ember from "ember"`
 
-PostNewRoute = Ember.Route.extend
+PostsNewRoute = Ember.Route.extend
   model: (params, transition, queryParams) ->
     Ember.Logger.debug "=================================="
     Ember.Logger.debug params
     Ember.Logger.debug "=================================="
     # @store.createRecord params.ptype, { type: params.ptype }
-    @store.createRecord params.ptype, { category: "default", views: 0, total_comments: 0 }
+    posts = @modelFor('posts')
+    @store.createRecord posts.type.typeKey, { category: "default", views: 0, total_comments: 0 }
   ,
   serialize: (model) ->
     Ember.Logger.debug "--------- serialize ------------"
@@ -22,7 +23,7 @@ PostNewRoute = Ember.Route.extend
   actions:
     save: ->
       @currentModel.save().then (post) ->
-        @transitionTo 'post.show', post
+        transitionToRoute 'post.index', post
     ,
     cancel: ->
       Ember.Logger.debug "========================"
@@ -31,4 +32,4 @@ PostNewRoute = Ember.Route.extend
       Ember.Logger.debug "========================"
       # @transitionTo 'posts.index', @currentModel.get('constructor.typeKey')
 
-`export default PostNewRoute`
+`export default PostsNewRoute`

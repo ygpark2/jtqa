@@ -13,13 +13,13 @@ Obj = Ember.Controller.extend
       @model.set 'phone', '00000'
       @model.save().then (post) ->
         console.log post
-        _this.transitionTo 'posts.show', post
+        _this.transitionToRoute 'post.index', post
     ,
     cancel: ->
       console.log "================ cancel action called ==============="
       ptype = @get 'ptype'
       console.log ptype
       console.log "------------------------------------------------------"
-      @transitionTo 'posts.index', @get 'ptype'
+      transitionToRoute 'posts.index', @get 'ptype'
 
 `export default Obj`
