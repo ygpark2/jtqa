@@ -26,7 +26,7 @@
 {{#each post in controller}}
 <tr>
     <td>{{post.id}}</td>
-    <td>{{#link-to 'post.index' post }}{{post.title}}{{/link-to}}</td>
+    <td>{{#link-to 'post.index' post.id }}{{post.title}}{{/link-to}}</td>
     <td>{{post.total_comments}}</td>
     <td>{{post.views}}</td>
     <td>{{post.name}}</td>

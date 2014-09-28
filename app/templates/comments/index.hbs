@@ -1,0 +1,17 @@
+<h3 class="uk-h2">Comments (4)</h3>
+<ul class="uk-comment-list">
+    {{#each comment in controller}}
+    <li>
+    <article class="uk-comment uk-comment-primary">
+        <header class="uk-comment-header">
+            <img class="uk-comment-avatar" src="images/placeholder_avatar.svg" width="50" height="50" alt="">
+            <h4 class="uk-comment-title">{{ comment.title }}</h4>
+            <div class="uk-comment-meta">12 days ago | Profile | #</div>
+        </header>
+        <div class="uk-comment-body">
+            {{ comment.comment }}
+        </div>
+    </article>
+    </li>
+    {{/each}}
+</ul>

@@ -3,15 +3,17 @@
 PostIndexRoute = Ember.Route.extend
   model: (params) ->
     @modelFor('post')
-  setupController: (controller, model, trans) ->
+  setupController: (controller, model, transition) ->
+    ptype = transition.params.posts.ptype
     controller.set 'model', model
-    controller.set 'ptype', model.type.typeKey
+    controller.set 'ptype', ptype
   serialize: (model, params) ->
     Ember.Logger.debug "--------- serialize ------------"
     Ember.Logger.debug model
+    # Ember.Logger.debug model.type.typeKey
     Ember.Logger.debug "--------------------------------"
     Ember.Logger.debug params
-    { ptype: 'brisbane', pid: params.pid }
+    { ptype: 'sydeny', pid: params.pid }
   actions:
     commentSave: ->
       comment = @store.createRecord 'comment',

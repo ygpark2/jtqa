@@ -1,22 +1,9 @@
 `import Ember from "ember"`
 
-PostsRoute = Ember.Route.extend
-  queryParams:
-    page:
-      refreshModel: true,
-      replace: true
-    pageSize:
-      refreshModel: true
-    searchKey:
-      refreshModel: true
-    searchVal:
-      refreshModel: true
-  model: (params) ->
-    Ember.Logger.debug "======== posts model params ============"
-    Ember.Logger.debug params
-    postType = params.ptype
-    delete params['ptype']
-    @store.find postType, params
+CommentsRoute = Ember.Route.extend
+  model: (params, transition, queryParams) ->
+    Ember.Logger.debug "--> comments routes loaded /// --  "
+    @modelFor('post').get('comments')
   # setupController: (controller, model, params) ->
   #   @controllerFor('posts.index').set('data', model);
   #   @_super(controller, model)
@@ -31,15 +18,6 @@ PostsRoute = Ember.Route.extend
   #   controller.set 'page', 1
   #   controller.set 'ptype', params.ptype
   # ,
-  actions:
-    queryParamsDidChange: (params) ->
-      # console.log @getParentRoute()
-      Ember.Logger.debug @get 'queryParams'
-      # @store.find @get('ptype'), {page: params.page}
-      Ember.Logger.debug "-----=====++++ query params changed!+++++=======-------"
-      Ember.Logger.debug params
-      Ember.Logger.debug "================================="
-      @refresh params
   # renderTemplate: (controller, model) ->
   #   console.log "=============== render ==================="
   #   console.log controller
@@ -49,4 +27,4 @@ PostsRoute = Ember.Route.extend
   #     controller: @get('postsIndexController')
   #     into: 'posts'
 
-`export default PostsRoute`
+`export default CommentsRoute`

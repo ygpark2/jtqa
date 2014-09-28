@@ -13,13 +13,13 @@
         <div class="uk-float-right">
             {{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}
             {{#link-to 'posts.index' ptype class="uk-button"}} 목록 {{/link-to}}
-            {{#link-to 'posts.edit' model class="uk-button"}} 수정 {{/link-to}}
+            {{#link-to 'post.edit' model class="uk-button"}} 수정 {{/link-to}}
         </div>
     </div>
 </article>
 <h3 class="uk-h2">Comments (4)</h3>
 <ul class="uk-comment-list">
-    {{#each comment in controllers.comments}}
+    {{#each comment in controllers.comments.model}}
     <li>
     <article class="uk-comment uk-comment-primary">
         <header class="uk-comment-header">

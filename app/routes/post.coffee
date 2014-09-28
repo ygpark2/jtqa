@@ -1,6 +1,6 @@
 `import Ember from "ember"`
 
-PostViewRoute = Ember.Route.extend
+PostRoute = Ember.Route.extend
   beforeModel: (transition) ->
     Ember.Logger.debug "---------- beforeModel ----------"
     Ember.Logger.debug transition
@@ -22,4 +22,4 @@ PostViewRoute = Ember.Route.extend
   #   commentCancel: ->
   #     @transitionTo 'participants.index'
 
-`export default PostViewRoute`
+`export default PostRoute`

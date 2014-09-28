@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 # `import paginationController from "./pagination"`
 
-Obj = Ember.ArrayController.extend
+Posts = Ember.ArrayController.extend
   # init: ->
   #   console.log "======= posts array controller loaded! ======"
   #
@@ -25,4 +25,4 @@ Obj = Ember.ArrayController.extend
     Ember.Logger.debug 'path changed to: ' + path
   ).observes('currentPath')
 
-`export default Obj`
+`export default Posts`
