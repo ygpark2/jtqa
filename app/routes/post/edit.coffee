@@ -7,12 +7,12 @@ PostEditRoute = Ember.Route.extend
     Ember.Logger.debug "---------------------------------"
   ,
   model: (params) ->
-    @set "ptype", params.ptype
-    @store.find params.ptype, params.pid
+    @modelFor('post')
   ,
-  setupController: (controller, model, trans) ->
+  setupController: (controller, model, transition) ->
+    ptype = transition.params.posts.ptype
     controller.set 'model', model
-    controller.set 'ptype', trans.params['posts.edit'].ptype
+    controller.set 'ptype', ptype
     Ember.Logger.debug "================= setupController =============="
     Ember.Logger.debug model
     Ember.Logger.debug model.get('tags')
@@ -34,6 +34,7 @@ PostEditRoute = Ember.Route.extend
       Ember.Logger.debug "=================="
       @currentModel.save().then (post) ->
         Ember.Logger.debug post
+        transitionToRoute 'post.index', post
         # @transitionTo 'post.show', post
     ,
     cancel: (params) ->

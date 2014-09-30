@@ -7,6 +7,11 @@ PostIndexRoute = Ember.Route.extend
     ptype = transition.params.posts.ptype
     controller.set 'model', model
     controller.set 'ptype', ptype
+    Ember.Logger.debug "--------- setupController ------------"
+    Ember.Logger.debug model.get('comments').createRecord
+    Ember.Logger.debug model.get('comments')
+    # Ember.Logger.debug model.type.typeKey
+    Ember.Logger.debug "---------- setupController ------------"
   serialize: (model, params) ->
     Ember.Logger.debug "--------- serialize ------------"
     Ember.Logger.debug model

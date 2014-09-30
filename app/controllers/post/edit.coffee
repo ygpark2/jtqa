@@ -31,13 +31,13 @@ Obj = Ember.Controller.extend
         Ember.Logger.debug "+++++++++++++++++++++++++++"
         Ember.Logger.debug post
         Ember.Logger.debug "+++++++++++++++++++++++++++"
-        _this.transitionToRoute 'posts.show', post
+        _this.transitionToRoute 'post.index', post
     ,
     cancel: ->
       Ember.Logger.debug "================ cancel action called ==============="
       Ember.Logger.debug ptype
       Ember.Logger.debug "------------------------------------------------------"
       ptype = @get 'ptype'
-      @transitionTo 'posts.index', @get 'ptype'
+      @transitionTo 'post.index', @get 'model'
 
 `export default Obj`
