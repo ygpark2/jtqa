@@ -4,12 +4,14 @@ PostIndexRoute = Ember.Route.extend
   model: (params) ->
     @modelFor('post')
   setupController: (controller, model, transition) ->
+    comment = @store.createRecord 'comment', { post: model.id }
     ptype = transition.params.posts.ptype
     controller.set 'model', model
     controller.set 'ptype', ptype
+    controller.set 'comment', comment
     Ember.Logger.debug "--------- setupController ------------"
     Ember.Logger.debug model.get('comments').createRecord
-    Ember.Logger.debug model.get('comments')
+    Ember.Logger.debug comment
     # Ember.Logger.debug model.type.typeKey
     Ember.Logger.debug "---------- setupController ------------"
   serialize: (model, params) ->

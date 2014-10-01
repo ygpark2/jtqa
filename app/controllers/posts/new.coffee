@@ -8,11 +8,9 @@ Obj = Ember.Controller.extend
 
   actions:
     submit: ->
-      console.log @model
       _this = @
       @model.set 'phone', '00000'
       @model.save().then (post) ->
-        console.log post
         _this.transitionToRoute 'post.index', post
     ,
     cancel: ->
