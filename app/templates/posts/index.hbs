@@ -11,33 +11,33 @@
 
 
 <table class="uk-table uk-table-hover">
-<caption></caption>
-<thead>
-<tr>
-    <th>번호</th>
-    <th>제목</th>
-    <th>코멘트</th>
-    <th>읽음</th>
-    <th>글쓴이</th>
-    <th>글쓴 시간</th>
-</tr>
-</thead>
-<tbody>
-{{#each post in controller}}
-<tr>
-    <td>{{post.id}}</td>
-    <td>{{#link-to 'post.index' post.id }}{{post.title}}{{/link-to}}</td>
-    <td>{{post.total_comments}}</td>
-    <td>{{post.views}}</td>
-    <td>{{post.name}}</td>
-    <td>{{date-format post.created_at 'MMMM Do, YYYY [at] h:mm'}}</td>
-</tr>
-{{/each}}
-</tbody>
+    <caption></caption>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>코멘트</th>
+            <th>읽음</th>
+            <th>글쓴이</th>
+            <th>글쓴 시간</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each post in controller}}
+        <tr>
+            <td>{{post.id}}</td>
+            <td>{{#link-to 'post.index' post.id }}{{post.title}}{{/link-to}}</td>
+            <td>{{post.total_comments}}</td>
+            <td>{{post.views}}</td>
+            <td>{{post.name}}</td>
+            <td>{{date-format post.created_at 'MMMM Do, YYYY [at] h:mm'}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
 </table>
 
 <div class="uk-clearfix">
-  <div class="uk-float-right">{{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}</div>
+    <div class="uk-float-right">{{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}</div>
 </div>
 
 {{pagination-uk currentPage=page totalPages=15 ptype=ptype}}

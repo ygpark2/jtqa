@@ -4,13 +4,14 @@
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-title">Title</label>
       <div class="uk-form-controls">
-        {{input type="text" id="form-h-title" class="uk-width-1-1" value="" placeholder="Title"}}
+        {{input type="text" id="form-h-id" value=comment.post placeholder="3"}}
+        {{input type="text" id="form-h-title" class="uk-width-1-1" value=comment.title placeholder="Title"}}
       </div>
     </div>
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-content">Content</label>
       <div class="uk-form-controls">
-        {{textarea id="form-h-content" cols="100" rows="10" value="" placeholder="Content"}}
+        {{textarea id="form-h-content" cols="100" rows="10" value=comment.comment placeholder="Content"}}
       </div>
     </div>
     <div class="uk-form-row">

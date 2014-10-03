@@ -6,8 +6,8 @@ Obj = Ember.Controller.extend
     # Ember.Logger.debug @get comments
     Ember.Logger.debug "------------ init ----------------"
   needs: ['post/comments/index', 'post/comments/new', 'comments']
-  comments: Ember.computed.alias('controllers.comments')
-  comment_form: Ember.computed.alias('controllers.post/comments/new')
+  # comments: Ember.computed.alias('controllers.comments')
+  # comment_form: Ember.computed.alias('controllers.post/comments/new')
   selectedState: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
   states: [
     {name: "Sydney",    value: "SYD"}

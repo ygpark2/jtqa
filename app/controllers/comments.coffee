@@ -3,7 +3,7 @@
 Comments = Ember.ArrayController.extend
   init: ->
     Ember.Logger.debug "======= comments array controller loaded! ======"
-    @._super()
+    @_super()
   #
   # This is for posts controller
   #
