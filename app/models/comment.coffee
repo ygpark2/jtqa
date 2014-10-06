@@ -3,8 +3,8 @@
 Comment = DS.Model.extend
   comment: DS.attr 'string'
   title: DS.attr 'string'
-  created: DS.attr 'date'
-  updated: DS.attr 'date'
+  created_at: DS.attr 'date'
+  updated_at: DS.attr 'date'
   post: DS.belongsTo 'post'
 
 ###

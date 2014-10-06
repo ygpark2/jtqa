@@ -6,13 +6,12 @@ PostIndexRoute = Ember.Route.extend
   setupController: (controller, model, transition) ->
     ptype = transition.params.posts.ptype
 
-    Ember.Logger.debug "======= model loaded !!!! ====="
-    comment = model.store.createRecord 'comment' # , {post: @store.getById(ptype, 3)}
-    # comment.get('post').pushObject(model)
+    comment = @store.createRecord 'comment', {post: @store.getById('post', model.id)}
+    controller.set 'comment', comment
 
     controller.set 'model', model
     controller.set 'ptype', ptype
-    controller.set 'comment', comment
+
     Ember.Logger.debug "--------- setupController ------------"
     # Ember.Logger.debug model.get('comments').createRecord
     # Ember.Logger.debug comment
@@ -28,16 +27,7 @@ PostIndexRoute = Ember.Route.extend
   actions:
     commentSave: ->
       comment = @controller.get 'comment'
-      # comment = @store.createRecord 'comment',
-      #   title: "comment tile test",
-      #   comment: 'comment content test',
-      #   post: 3 # @controller.get('model')
       Ember.Logger.debug "--------------- commentSave ---------------------"
-      Ember.Logger.debug @currentModel.get('comments').adapter
-      Ember.Logger.debug @currentModel.adapter
-      Ember.Logger.debug @store.adapterFor('comment')
-      Ember.Logger.debug comment.store
-      Ember.Logger.debug comment.store.get 'adapter'
       Ember.Logger.debug @controller.get('model').id
       Ember.Logger.debug "---------------- commentSave --------------------"
       @currentModel.get('comments').pushObject(comment).save().then (post) ->

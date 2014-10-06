@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "uikit": "~2.9.0",
+    "html5shiv": "~3.7.2",
     "moment": "~2.8.3"
   }
 }

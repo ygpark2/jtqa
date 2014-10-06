@@ -16,6 +16,22 @@ var app = new EmberApp({
 // Use this to add additional libraries to the generated output files.
 // app.import('bower_components/ember-data/ember-data.js');
 
+app.import({
+  development: "bower_components/html5shiv/dist/html5shiv.js",
+  production: "bower_components/html5shiv/dist/html5shiv-min.js"
+});
+
+app.import({
+  development: "bower_components/moment/moment.js",
+  production: "bower_components/moment/min/moment.min.js"
+});
+
+// app.import("bower_components/highcharts-release/highcharts-all.js")
+// app.import({
+//   development: "bower_components/d3/d3.js",
+//   production: "bower_components/d3/d3.min.js"
+// });
+
 app.import('bower_components/uikit/dist/js/uikit.min.js');
 app.import('bower_components/uikit/dist/js/addons/autocomplete.min.js');
 app.import('bower_components/uikit/dist/js/addons/datepicker.min.js');
