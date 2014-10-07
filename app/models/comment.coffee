@@ -5,7 +5,7 @@ Comment = DS.Model.extend
   title: DS.attr 'string'
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
-  post: DS.belongsTo 'post'
+  post: DS.belongsTo 'post', { polymorphic: true }
 
 ###
 Comment.reopenClass
