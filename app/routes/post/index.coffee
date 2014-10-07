@@ -6,7 +6,7 @@ PostIndexRoute = Ember.Route.extend
   setupController: (controller, model, transition) ->
     ptype = transition.params.posts.ptype
 
-    comment = @store.createRecord 'comment', {post: @store.getById('post', model.id)}
+    comment = @store.createRecord 'comment', {post: model}
     controller.set 'comment', comment
 
     controller.set 'model', model
