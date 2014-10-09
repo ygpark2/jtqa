@@ -3,7 +3,7 @@
 Tag = DS.Model.extend
   name: DS.attr 'string'
   taggings_count: DS.attr 'number'
-  posts: DS.hasMany 'post'
+  posts: DS.hasMany 'post', {polymorphic: true}
   # post: DS.belongsTo 'post', {polymorphic: true}
 
 ###
