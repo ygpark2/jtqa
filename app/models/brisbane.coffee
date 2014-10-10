@@ -3,6 +3,7 @@
 
 Brisbane = Post.extend
   category: DS.attr 'string'
+  comments: DS.hasMany 'comment', {inverse: 'brisbanePost', async: true}
 
 ###
 Brisbane.reopenClass

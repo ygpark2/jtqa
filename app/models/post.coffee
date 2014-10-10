@@ -12,7 +12,6 @@ Post = DS.Model.extend
   updated_at: DS.attr 'date'
   tag_list: DS.attr 'string'
   tags: DS.hasMany 'tag', {async:true}
-  comments: DS.hasMany 'comment', {async: true}
 
 ###
   tag_list: (->
