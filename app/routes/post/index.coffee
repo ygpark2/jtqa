@@ -3,6 +3,11 @@
 PostIndexRoute = Ember.Route.extend
   model: (params) ->
     @modelFor('post')
+  afterModel: (post, transition) ->
+    view_cnt = post.get('views')
+    post.set('views', view_cnt + 1)
+    post.save().then (post) ->
+      Ember.Logger.debug "view count increased"
   setupController: (controller, model, transition) ->
     ptype = transition.params.posts.ptype
 
@@ -23,7 +28,7 @@ PostIndexRoute = Ember.Route.extend
     # Ember.Logger.debug model.type.typeKey
     Ember.Logger.debug "--------------------------------"
     Ember.Logger.debug params
-    { ptype: 'sydeny', pid: params.pid }
+    { ptype: model.type.typeKey, pid: params.pid }
   actions:
     commentSave: ->
       comment = @controller.get 'comment'
@@ -31,7 +36,11 @@ PostIndexRoute = Ember.Route.extend
       Ember.Logger.debug @controller.get('model').id
       Ember.Logger.debug "---------------- commentSave --------------------"
       @currentModel.get('comments').pushObject(comment).save().then (post) ->
-        @transitionTo 'post.index', post
+        comment_cnt = post.get('total_comments')
+        post.set('total_comments', comment_cnt + 1)
+        post.save().then (post) ->
+          Ember.Logger.debug "view count increased"
+          @transitionTo 'post.index', post
     commentCancel: ->
       @transitionTo 'participants.index'
 

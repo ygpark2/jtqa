@@ -21,10 +21,10 @@ PostEditRoute = Ember.Route.extend
   ,
   serialize: (model) ->
     Ember.Logger.debug "--------- serialize ------------"
-    Ember.Logger.debug model.get('constructor.typeKey')
+    Ember.Logger.debug model.type.typeKey
     Ember.Logger.debug "--------------------------------"
     Ember.Logger.debug model
-    { ptype: model.get('constructor.typeKey'), pid: model.get('id') }
+    { ptype: model.type.typeKey, pid: model.get('id') }
   ,
   actions:
     save: (params) ->
@@ -33,15 +33,15 @@ PostEditRoute = Ember.Route.extend
       Ember.Logger.debug params
       Ember.Logger.debug "=================="
       @currentModel.save().then (post) ->
+        Ember.Logger.debug " ((((( post is saved ))))) "
         Ember.Logger.debug post
         transitionToRoute 'post.index', post
-        # @transitionTo 'post.show', post
     ,
     cancel: (params) ->
       Ember.Logger.debug "cancel action called"
       Ember.Logger.debug "=================="
       Ember.Logger.debug params
       Ember.Logger.debug "=================="
-      # @transitionTo 'posts.index'
+      transitionToRoute 'post.index', @currentModel
 
 `export default PostEditRoute`
