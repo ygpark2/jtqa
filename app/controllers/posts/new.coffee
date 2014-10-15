@@ -1,6 +1,14 @@
 `import Ember from "ember"`
 
-Obj = Ember.Controller.extend
+Obj = Ember.Controller.extend Ember.Validations.Mixin
+  validations:
+    title:
+      presence: true
+      length: { minimum: 5 }
+    content:
+      presence: true
+      length: { minimum: 5 }
+
   saveText: '글쓰기',
   cancelText: '취소',
   saveAction: 'save',
