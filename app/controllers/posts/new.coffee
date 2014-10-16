@@ -1,14 +1,6 @@
 `import Ember from "ember"`
 
-Obj = Ember.Controller.extend Ember.Validations.Mixin
-  validations:
-    title:
-      presence: true
-      length: { minimum: 5 }
-    content:
-      presence: true
-      length: { minimum: 5 }
-
+Obj = Ember.ObjectController.extend Ember.Validations.Mixin
   saveText: '글쓰기',
   cancelText: '취소',
   saveAction: 'save',
@@ -27,5 +19,14 @@ Obj = Ember.Controller.extend Ember.Validations.Mixin
       console.log ptype
       console.log "------------------------------------------------------"
       transitionToRoute 'posts.index', @get 'ptype'
+
+Obj.reopen
+  validations:
+    title:
+      presence: true
+      length: { minimum: 5 }
+    content:
+      presence: true
+      length: { minimum: 5 }
 
 `export default Obj`
