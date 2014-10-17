@@ -1,10 +1,20 @@
 `import Ember from "ember"`
+Validations = Ember.Validations.Mixin
 
-Obj = Ember.ObjectController.extend Ember.Validations.Mixin
+Obj = Ember.ObjectController.extend(Validations,
+
   saveText: '글쓰기',
   cancelText: '취소',
   saveAction: 'save',
   cancelAction: 'cancel',
+
+  validations:
+    title:
+      presence: true
+      length: { minimum: 5 }
+    content:
+      presence: true
+      length: { minimum: 5 }
 
   actions:
     submit: ->
@@ -14,19 +24,11 @@ Obj = Ember.ObjectController.extend Ember.Validations.Mixin
         _this.transitionToRoute 'post.index', post
     ,
     cancel: ->
-      console.log "================ cancel action called ==============="
+      Ember.Logger.debug "================ cancel action called ==============="
       ptype = @get 'ptype'
-      console.log ptype
-      console.log "------------------------------------------------------"
+      Ember.Logger.debug ptype
+      Ember.Logger.debug "------------------------------------------------------"
       transitionToRoute 'posts.index', @get 'ptype'
-
-Obj.reopen
-  validations:
-    title:
-      presence: true
-      length: { minimum: 5 }
-    content:
-      presence: true
-      length: { minimum: 5 }
+)
 
 `export default Obj`
