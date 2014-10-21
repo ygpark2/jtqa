@@ -17,7 +17,7 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import('bower_components/ember-validations/index.js');
+// app.import('bower_components/ember-validations/index.js');
 
 // app.import({
 //     development: "bower_components/html5shiv/dist/html5shiv.js",

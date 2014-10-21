@@ -1,15 +1,24 @@
 `import Ember from "ember"`
-Validations = Ember.Validations.Mixin
+`import EmberValidations from 'ember-validations'`
 
-Obj = Ember.ObjectController.extend(Validations,
+Obj = Ember.ObjectController.extend(EmberValidations.Mixin,
 
-  saveText: '글쓰기',
-  cancelText: '취소',
-  saveAction: 'save',
-  cancelAction: 'cancel',
+  saveText: '글쓰기'
+  cancelText: '취소'
+  saveAction: 'save'
+  cancelAction: 'cancel'
 
   validations:
     title:
+      presence: true
+      length: { minimum: 5 }
+    name:
+      presence: true
+      length: { minimum: 5 }
+    email:
+      presence: true
+      length: { minimum: 5 }
+    tags:
       presence: true
       length: { minimum: 5 }
     content:
@@ -20,15 +29,36 @@ Obj = Ember.ObjectController.extend(Validations,
     submit: ->
       _this = @
       @model.set 'phone', '00000'
-      @model.save().then (post) ->
-        _this.transitionToRoute 'post.index', post
-    ,
+      @validate().then () ->
+        # all validations pass
+        _this.get('title') # true
+        _this.get('name')
+        _this.get('email')
+        _this.get('content')
+        @model.save().then (post) ->
+          _this.transitionToRoute 'post.index', post
+      .catch () ->
+        # any validations fail
+        _this.get('title') #  false
+        _this.get('name')
+        _this.get('email')
+        _this.get('content')
+      .finally () ->
+        # all validations complete
+        # regardless of isValid state
+        _this.get('title') # true || false
+        _this.get('name')
+        _this.get('email')
+        _this.get('content')
+
     cancel: ->
-      Ember.Logger.debug "================ cancel action called ==============="
       ptype = @get 'ptype'
+      Ember.Logger.debug "================ cancel action called ==============="
+      Ember.Logger.debug @model
+      Ember.Logger.debug @model.type
       Ember.Logger.debug ptype
       Ember.Logger.debug "------------------------------------------------------"
-      transitionToRoute 'posts.index', @get 'ptype'
+      @transitionToRoute 'posts.index', ptype
 )
 
 `export default Obj`

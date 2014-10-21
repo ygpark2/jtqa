@@ -32,6 +32,7 @@
     "ember-cli-sass": "^2.0.0",
     "ember-cli-simple-auth": "^0.6.7",
     "ember-cli-map": "^0.2.0",
+    "ember-validations": "~2.0.0-alpha.1",
     "express": "^4.8.5",
     "glob": "^4.0.5"
   }
