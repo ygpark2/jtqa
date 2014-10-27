@@ -4,13 +4,10 @@ Obj = {
   name: 'cldr'
 
   initialize: () ->
-    cookie = Ember.get('cookie')
-
-    Ember.Logger.debug cookie
     lang = Ember.$.cookie('user-lang')
 
     if (lang == undefined)  # no cookie exists yet
-      lang = 'en'
+      lang = 'ko'
       Ember.$.cookie('user-lang', lang, {expires:365, path:'/'})
 
     CLDR.defaultLanguage = lang
