@@ -1,25 +1,20 @@
 <h3>New Post...</h3>
 
 {{ model.isValid }}
+
 <form class="uk-form uk-form-horizontal" {{action 'submit' on='submit'}}>
 <fieldset>
   <legend>새글 쓰기</legend>
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-title">Title</label>
       <div class="uk-form-controls">
-        {{input type="text" id="form-h-title" classBinding=":uk-width-1-1 model.errors.title:uk-form-danger" value=model.title placeholder="Title"}}
-        {{#if model.errors.title}}
-          {{ model.errors.title }}
-        {{/if}}
+        {{input type="text" id="form-h-title" classBinding=":uk-width-1-1 model.errors.title:uk-form-danger" value=model.title placeholder="Title" required='required' title='You must accept agreements'}}
       </div>
     </div>
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-name">Name</label>
       <div class="uk-form-controls">
         {{input type="text" id="form-h-name" classBinding=":uk-width-1-1 model.errors.name:uk-form-danger" value=model.name placeholder="Name"}}
-        {{#if model.errors.name }}
-          {{ model.errors.name }}
-        {{/if}}
       </div>
     </div>
     <div class="uk-form-row">
