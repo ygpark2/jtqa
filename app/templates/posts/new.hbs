@@ -8,25 +8,25 @@
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-title">Title</label>
       <div class="uk-form-controls">
-        {{input type="text" id="form-h-title" classBinding=":uk-width-1-1 model.errors.title:uk-form-danger" value=model.title placeholder="Title" required='required' title='You must accept agreements'}}
+        {{input type="text" id="form-h-title" classBinding=":uk-width-1-1 model.errors.title:uk-form-danger" value=model.title placeholder="Title" focus-out="validate"}}
       </div>
     </div>
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-name">Name</label>
       <div class="uk-form-controls">
-        {{input type="text" id="form-h-name" classBinding=":uk-width-1-1 model.errors.name:uk-form-danger" value=model.name placeholder="Name"}}
+        {{input type="text" id="form-h-name" classBinding=":uk-width-1-1 model.errors.name:uk-form-danger" value=model.name placeholder="Name" focus-out="validate"}}
       </div>
     </div>
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-email">Email</label>
       <div class="uk-form-controls">
-        {{input type="text" id="form-h-email" class="uk-width-1-1" value=model.email placeholder="Email"}}
+        {{input type="text" id="form-h-email" class="uk-width-1-1" value=model.email placeholder="Email" focus-out="validate"}}
       </div>
     </div>
     <div class="uk-form-row">
       <label class="uk-form-label uk-text-center" for="form-h-tags">Tags</label>
       <div class="uk-form-controls">
-        {{input type="text" id="form-h-tags" class="uk-width-1-1" value=model.tag_list placeholder="Tags"}}
+        {{input type="text" id="form-h-tags" class="uk-width-1-1" value=model.tag_list placeholder="Tags" focus-out="validate"}}
       </div>
     </div>
     <div class="uk-form-row">

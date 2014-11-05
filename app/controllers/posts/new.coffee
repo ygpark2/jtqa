@@ -37,6 +37,9 @@ Obj = Ember.ObjectController.extend
   ).observes('content')
 
   actions:
+    validate: () ->
+      Ember.Logger.debug "---------- validate ??????? ---------------"
+      @model.validate()
     submit: ->
       _this = @
       @model.validate().then () ->

@@ -1,31 +1,31 @@
 `import DS from "ember-data"`
 `import Post from "jtqa/models/post"`
 # `import EmberValidations from 'ember-validations'`
-# Brisbane = Post.extend EmberValidations.Mixin,
+`import JungtoValidationsMixin from "../mixins/JungtoValidationsMixin"`
 
-Brisbane = Post.extend
+# Brisbane = Post.extend
+Brisbane = Post.extend JungtoValidationsMixin,
   category: DS.attr 'string'
   comments: DS.hasMany 'comment', {inverse: 'brisbanePost', async: true}
 
-###
 Brisbane.reopen
-validations:
-  title:
-    presence: true
-    length: { minimum: 5 }
-  name:
-    presence: true
-    length: { minimum: 5 }
-  email:
-    presence: true
-    length: { minimum: 5 }
-  tag_list:
-    presence: true
-    length: { minimum: 5 }
-  content:
-    presence: true
+  validations:
+    title:
+      presence: true
+      length: { minimum: 5 }
+    name:
+      presence: true
+      length: { minimum: 5 }
+    email:
+      presence: true
+      length: { minimum: 5 }
+    tag_list:
+      presence: true
+      length: { minimum: 5 }
+    content:
+      presence: true
 
-
+###
 Brisbane.reopenClass
 FIXTURES: [
   {
