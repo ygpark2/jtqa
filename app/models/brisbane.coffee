@@ -3,11 +3,12 @@
 # `import EmberValidations from 'ember-validations'`
 `import JungtoValidationsMixin from "../mixins/JungtoValidationsMixin"`
 
-# Brisbane = Post.extend
-Brisbane = Post.extend JungtoValidationsMixin,
+Brisbane = Post.extend
+# Brisbane = Post.extend JungtoValidationsMixin,
   category: DS.attr 'string'
   comments: DS.hasMany 'comment', {inverse: 'brisbanePost', async: true}
 
+###
 Brisbane.reopen
   validations:
     title:
@@ -25,7 +26,6 @@ Brisbane.reopen
     content:
       presence: true
 
-###
 Brisbane.reopenClass
 FIXTURES: [
   {

@@ -5,7 +5,7 @@
 Ember.Logger.debug EmberValidations.Mixin
 
 LazyEmberValidationsMixin = Ember.Mixin.create EmberValidations.Mixin,
-
+  ###
     _validate: () ->
       @_super()
   ###
@@ -14,9 +14,9 @@ LazyEmberValidationsMixin = Ember.Mixin.create EmberValidations.Mixin,
     @errors = Errors.create()
     @dependentValidationKeys = {}
     @validators = Ember.A()
-    if typeof @get('validations') is "undefined"
-      _this.set('validations', {})
-
+    if typeof Ember.get(@, 'validations') is "undefined"
+      _this.validations = {}
+    @_super()
     @buildValidators()
 
     Ember.run.scheduleOnce 'afterRender', @, () ->
@@ -27,8 +27,8 @@ LazyEmberValidationsMixin = Ember.Mixin.create EmberValidations.Mixin,
             if validator.property == sender.property
               errors.addObjects(validator.errors)
           , @)
-          @set('errors.' + sender.property, errors)
+          Ember.set('errors.' + sender.property, errors)
       , @)
-  ###
+
 
 `export default LazyEmberValidationsMixin`
