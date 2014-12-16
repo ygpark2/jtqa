@@ -1,5 +1,5 @@
 
-{{ ptype }}
+
 
 <h3>Ember Query Params: search</h3>
 
@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        {{#each post in controller}}
+        {{#each post in model}}
         <tr>
             <td>{{post.id}}</td>
             <td>{{#link-to 'post.index' post.id }}{{post.title}}{{/link-to}}</td>

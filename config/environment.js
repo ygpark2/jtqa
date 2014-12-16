@@ -28,6 +28,10 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.coffeeOptions = {
+    blueprints: false
+  };
+
   ENV['simple-auth'] = {
     serverTokenRevocationEndpoint: '/revoke'
   };
@@ -38,12 +42,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
-    ENV.locationType = 'auto';
+    ENV.locationType = 'none';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;

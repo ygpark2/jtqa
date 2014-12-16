@@ -1,5 +1,5 @@
 `import DS from "ember-data"`
-`import Post from "jtqa/models/post"`
+`import Post from "./post"`
 # `import EmberValidations from 'ember-validations'`
 `import JungtoValidationsMixin from "../mixins/JungtoValidationsMixin"`
 

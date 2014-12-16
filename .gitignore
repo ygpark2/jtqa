@@ -6,10 +6,7 @@
 
 # dependencies
 /node_modules
-/bower_components/*
-
-# intellij
-/.idea
+/bower_components
 
 # misc
 /.sass-cache

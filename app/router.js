@@ -65,7 +65,6 @@ Router.map(function() {
      this.route("edit");
      });
      */
-
 });
 
 export default Router;
