@@ -32,9 +32,16 @@ module.exports = function(environment) {
     blueprints: false
   };
 
-  ENV['simple-auth'] = {
-    serverTokenRevocationEndpoint: '/revoke'
+  ENV['simple-auth-devise'] = {
+    serverTokenEndpoint:  'http://localhost:3000/users/sign_in',
+    resourceName:         'business',
+    crossOriginWhitelist: ['http://localhost:3000/']
   };
+
+  // ENV['simple-auth'] = {
+    // serverTokenRevocationEndpoint: '/revoke'
+    // authorizer: 'simple-auth-authorizer:devise'
+  // };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

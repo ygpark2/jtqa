@@ -15,8 +15,7 @@
     "qunit": "~1.15.0",
     "ember-i18n": "~2.2.1",
     "cldr": "~1.0.2",
-    "qunit": "~1.15.0",
-    "ember-simple-auth": "0.6.7"
+    "ember-simple-auth": "0.7.2"
   },
   "resolutions": {
     "jquery": "^1.11.1"
