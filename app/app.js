@@ -13,7 +13,7 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
-setCsrfUrl('/api/v1/csrf/index');
+setCsrfUrl('http://localhost:3000/api/v1/csrf');
 
 loadInitializers(App, config.modulePrefix);
 loadInitializers(App, 'rails-csrf');

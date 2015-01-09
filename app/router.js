@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
     this.route("login");
-    this.route("registration");
+    this.route("signup");
 
     this.route("about");
     this.route("favorites", { path: "/favs" });

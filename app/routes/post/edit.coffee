@@ -5,6 +5,7 @@ PostEditRoute = Ember.Route.extend
     Ember.Logger.debug "---------- beforeMOdel ----------"
     Ember.Logger.debug transition
     Ember.Logger.debug "---------------------------------"
+    @csrf.fetchToken()
   ,
   model: (params) ->
     @modelFor('post')
@@ -25,23 +26,5 @@ PostEditRoute = Ember.Route.extend
     Ember.Logger.debug "--------------------------------"
     Ember.Logger.debug model
     { ptype: model.type.typeKey, pid: model.get('id') }
-  ,
-  actions:
-    save: (params) ->
-      Ember.Logger.debug "save action called"
-      Ember.Logger.debug "=================="
-      Ember.Logger.debug params
-      Ember.Logger.debug "=================="
-      @currentModel.save().then (post) ->
-        Ember.Logger.debug " ((((( post is saved ))))) "
-        Ember.Logger.debug post
-        transitionToRoute 'post.index', post
-    ,
-    cancel: (params) ->
-      Ember.Logger.debug "cancel action called"
-      Ember.Logger.debug "=================="
-      Ember.Logger.debug params
-      Ember.Logger.debug "=================="
-      transitionToRoute 'post.index', @currentModel
 
 `export default PostEditRoute`

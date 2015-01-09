@@ -1,6 +1,9 @@
 `import Ember from "ember"`
 
 PostsNewRoute = Ember.Route.extend
+  beforeModel: ->
+    @csrf.fetchToken()
+  ,
   model: (params, transition, queryParams) ->
     Ember.Logger.debug "=================================="
     Ember.Logger.debug params
@@ -19,17 +22,5 @@ PostsNewRoute = Ember.Route.extend
   setupController: (controller, model, trans) ->
     controller.set 'model', model
     controller.set 'ptype', trans.params['posts.new'].ptype
-  ,
-  actions:
-    save: ->
-      @currentModel.save().then (post) ->
-        transitionToRoute 'post.index', post
-    ,
-    cancel: ->
-      Ember.Logger.debug "========================"
-      Ember.Logger.debug @currentModel
-      Ember.Logger.debug @currentModel.get('constructor.typeKey')
-      Ember.Logger.debug "========================"
-      # @transitionTo 'posts.index', @currentModel.get('constructor.typeKey')
 
 `export default PostsNewRoute`

@@ -5,6 +5,7 @@ PostRoute = Ember.Route.extend
     Ember.Logger.debug "---------- beforeModel ----------"
     Ember.Logger.debug transition
     Ember.Logger.debug "---------------------------------"
+    @csrf.fetchToken()
   model: (params, transition, queryParams) ->
     ptype = transition.params.posts.ptype
     @store.find ptype, params.pid

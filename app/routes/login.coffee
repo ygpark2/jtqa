@@ -1,10 +1,10 @@
 `import Ember from "ember"`
 
-IndexRoute = Ember.Route.extend
+LoginRoute = Ember.Route.extend
   beforeModel: ->
     @csrf.fetchToken()
   ,
   model: ->
     ['red', 'yellow', 'blue']
 
-`export default IndexRoute`
+`export default LoginRoute`

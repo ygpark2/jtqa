@@ -63,12 +63,14 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
       @validate()
     submit: ->
       _this = @
+
       @validate().then () ->
         # all validations pass
         Ember.Logger.debug "validation is passed"
         _this.model.set 'phone', '00000'
         _this.model.save().then (post) ->
-          _this.transitionToRoute 'post.index', post
+          _this.modelFor('posts').reload()
+          _this.transitionToRoute 'posts.index'
       .catch () ->
         # any validations fail
         _this.set('form_errors', _this.get('errors'))

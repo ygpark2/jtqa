@@ -32,10 +32,13 @@ module.exports = function(environment) {
     blueprints: false
   };
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise',
+    crossOriginWhitelist: ['http://localhost:3000/'] //For CORS
+  };
+
   ENV['simple-auth-devise'] = {
-    serverTokenEndpoint:  'http://localhost:3000/users/sign_in',
-    resourceName:         'business',
-    crossOriginWhitelist: ['http://localhost:3000/']
+    serverTokenEndpoint:  'http://localhost:3000/api/v1/users/sign_in',
   };
 
   // ENV['simple-auth'] = {

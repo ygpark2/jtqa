@@ -1,6 +1,8 @@
 `import Ember from "ember"`
 
 PostsIndexRoute = Ember.Route.extend
+  beforeModel: ->
+    @csrf.fetchToken()
   model: (params) ->
     @modelFor('posts')
   setupController: (controller, model, trans) ->
