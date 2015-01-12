@@ -4,7 +4,8 @@
 
 Obj = Ember.Controller.extend LoginControllerMixin, {
   # authenticatorFactory: 'authenticator:custom'
-  authenticator: 'simple-auth-authenticator:devise'
+  authenticator: 'simple-auth-authenticator:token'
+  # authenticator: 'simple-auth-authenticator:devise'
 }
 
 `export default Obj`

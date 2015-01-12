@@ -33,18 +33,22 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:devise',
-    crossOriginWhitelist: ['http://localhost:3000/'] //For CORS
+    store: 'simple-auth-session-store:cookie',
+    authorizer: 'simple-auth-authorizer:token',
+    crossOriginWhitelist: ['http://localhost:3000/'] // For CORS
   };
 
-  ENV['simple-auth-devise'] = {
-    serverTokenEndpoint:  'http://localhost:3000/api/v1/users/sign_in',
+  ENV['simple-auth-cookie-store'] = {
+    cookieName: 'jungto-cookie-store'
   };
 
-  // ENV['simple-auth'] = {
-    // serverTokenRevocationEndpoint: '/revoke'
-    // authorizer: 'simple-auth-authorizer:devise'
-  // };
+  ENV['simple-auth-token'] = {
+    serverTokenEndpoint: 'http://localhost:3000/api/v1/auth/sign_in',
+    identificationField: 'email',
+    tokenPropertyName: 'access_token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
