@@ -33,19 +33,20 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    store: 'simple-auth-session-store:cookie',
+    // store: 'simple-auth-session-store:cookie',
     authorizer: 'simple-auth-authorizer:token',
     crossOriginWhitelist: ['http://localhost:3000/'] // For CORS
   };
 
   ENV['simple-auth-cookie-store'] = {
-    cookieName: 'jungto-cookie-store'
+    cookieName: 'jungto-cookie-store',
+    cookieDomain: 'localhost'
   };
 
   ENV['simple-auth-token'] = {
     serverTokenEndpoint: 'http://localhost:3000/api/v1/auth/sign_in',
     identificationField: 'email',
-    tokenPropertyName: 'access_token',
+    tokenPropertyName: 'token',
     authorizationPrefix: 'Bearer ',
     authorizationHeaderName: 'Authorization',
   };
