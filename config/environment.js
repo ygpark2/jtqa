@@ -39,7 +39,7 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth-cookie-store'] = {
-    cookieName: 'jungto-cookie-store'
+    cookieName: 'jungto_token_auth_session'
   };
 
   ENV['simple-auth-token'] = {
