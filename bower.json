@@ -21,7 +21,7 @@
     "jquery": "^1.11.1"
   },
   "devDependencies": {
-    "uikit": "~2.11.1",
+    "uikit": "~2.15.0",
     "moment": "~2.8.3"
   }
 }
