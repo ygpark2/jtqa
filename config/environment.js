@@ -35,7 +35,8 @@ module.exports = function(environment) {
   ENV['simple-auth'] = {
     // store: 'simple-auth-session-store:cookie',
     authorizer: 'simple-auth-authorizer:token',
-    crossOriginWhitelist: ['http://localhost:3000/'] // For CORS
+    crossOriginWhitelist: ['http://localhost:3000/'], // For CORS
+    authenticationRoute: 'login'
   };
 
   ENV['simple-auth-cookie-store'] = {

@@ -9,13 +9,13 @@ SignupController = Ember.Controller.extend
         email:                  @get('email')
         password:               @get('password')
         password_confirmation:  @get('password_confirmation')
-        first_name:             @get('first_name')
-        last_name:              @get('last_name')
-        contact_number:         @get('phone')
+        name:                   @get('name')
+        nickname:               @get('nickname')
+        # contact_number:         @get('phone')
 
-      request 'http://localhost:3000/api/v1/users',
+      request 'http://localhost:3000/api/v1/auth',
         type: 'POST'
-        data: user: user
+        data: user
         dataType: 'json'
       .then (response) =>
         if response['success']

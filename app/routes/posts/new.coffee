@@ -1,7 +1,9 @@
 `import Ember from "ember"`
+`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-PostsNewRoute = Ember.Route.extend
-  beforeModel: ->
+PostsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
+  beforeModel: (transition, queryParams) ->
+    @_super(transition, queryParams)
     @csrf.fetchToken()
   ,
   model: (params, transition, queryParams) ->

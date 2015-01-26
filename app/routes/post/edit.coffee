@@ -1,10 +1,9 @@
 `import Ember from "ember"`
+`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-PostEditRoute = Ember.Route.extend
-  beforeModel: (transition) ->
-    Ember.Logger.debug "---------- beforeMOdel ----------"
-    Ember.Logger.debug transition
-    Ember.Logger.debug "---------------------------------"
+PostEditRoute = Ember.Route.extend AuthenticatedRouteMixin,
+  beforeModel: (transition, queryParams) ->
+    @_super(transition, queryParams)
     @csrf.fetchToken()
   ,
   model: (params) ->
