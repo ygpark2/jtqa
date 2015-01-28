@@ -3,7 +3,6 @@
 LoginRoute = Ember.Route.extend
   beforeModel: ->
     @csrf.fetchToken()
-  ,
   model: ->
     ['red', 'yellow', 'blue']
   actions:
