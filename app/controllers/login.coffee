@@ -7,10 +7,6 @@ Obj = Ember.Controller.extend LoginControllerMixin,
   authenticator: 'simple-auth-authenticator:token'
 # authenticator: 'simple-auth-authenticator:devise'
 
-  sessionAuthenticationSucceeded: ->
-    Ember.Logger.debug('``````` sessionAuthenticationFailed')
-    console.log("-----------------------------------------")
-
   rememberMe: false
 
   rememberMeChanged: (->

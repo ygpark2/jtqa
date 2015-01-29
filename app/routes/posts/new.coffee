@@ -5,6 +5,9 @@ PostsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
   beforeModel: (transition, queryParams) ->
     @_super(transition, queryParams)
     @csrf.fetchToken()
+    unless ( @session.get('isAuthenticated') )
+      Ember.Logger.debug "----- previous transition is saved! ---------"
+      @controllerFor('login').set('previousTransition', transition)
   ,
   model: (params, transition, queryParams) ->
     Ember.Logger.debug "=================================="

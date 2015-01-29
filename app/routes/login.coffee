@@ -7,10 +7,18 @@ LoginRoute = Ember.Route.extend
     ['red', 'yellow', 'blue']
   actions:
     sessionAuthenticationSucceeded: ->
+      previousTransition = @controllerFor("login").get("previousTransition")
+      if (previousTransition)
+        Ember.Logger.debug previousTransition
+        @controllerFor("login").set("previousTransition", null)
+        previousTransition.retry()
+      else
+        @transitionTo("index")
       Ember.Logger.debug('Login : Session authentication succeeded')
 
     sessionAuthenticationFailed: (error) ->
-      Ember.Logger.debug('Login : Session authentication failed with message:', error.message)
+      Ember.Logger.debug @get("previousTransition")
+      # Ember.Logger.debug('Login : Session authentication failed with message:', error.message)
       # show generic error
       @controller.set('errorMessage', 'Invalid email/password combination.')
 
@@ -21,7 +29,9 @@ LoginRoute = Ember.Route.extend
       Ember.Logger.debug('Login : Session invalidation failed with message:', error.message)
 
     authorizationFailed: (error) ->
-      Ember.Logger.debug('Login : Authorization failed with message:', error.message)
+      Ember.Logger.debug @controllerFor("login").get("previousTransition")
+      Ember.Logger.debug('Login : Authorization failed with message:')
+      # Ember.Logger.debug('Login : Authorization failed with message:', error.message)
 
 
 `export default LoginRoute`
