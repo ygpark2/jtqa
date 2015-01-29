@@ -5,6 +5,8 @@ PostEditRoute = Ember.Route.extend AuthenticatedRouteMixin,
   beforeModel: (transition, queryParams) ->
     @_super(transition, queryParams)
     @csrf.fetchToken()
+    unless ( @session.get('isAuthenticated') )
+      @controllerFor('login').set('previousTransition', transition)
   ,
   model: (params) ->
     @modelFor('post')

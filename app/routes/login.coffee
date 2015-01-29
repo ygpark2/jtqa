@@ -9,7 +9,6 @@ LoginRoute = Ember.Route.extend
     sessionAuthenticationSucceeded: ->
       previousTransition = @controllerFor("login").get("previousTransition")
       if (previousTransition)
-        Ember.Logger.debug previousTransition
         @controllerFor("login").set("previousTransition", null)
         previousTransition.retry()
       else
