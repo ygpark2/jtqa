@@ -3,6 +3,8 @@
 
 Sydney = Post.extend
   category: DS.attr 'string'
+  tags: DS.hasMany 'tag', {async:true}
+  comments: DS.hasMany 'comment', {inverse: 'sydneyPost', async: true}
 
 ###
 Sydney.reopenClass

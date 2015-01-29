@@ -14,7 +14,8 @@ Obj = Ember.Route.extend ApplicationRouteMixin,
       # handle failure
   actions:
     sessionInvalidationSucceeded: ->
-      Ember.Logger.debug "-----------------------------------"
+      Ember.Logger.debug "--------------- logout --------------------"
+      @transitionTo("index")
     sessionAuthenticationSucceeded: ->
       Ember.Logger.debug "---------------- succeed -------------------"
       Ember.Logger.debug "-----------------------------------"

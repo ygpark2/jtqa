@@ -64,13 +64,26 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
     submit: ->
       _this = @
 
-      @validate().then () ->
+      @validate().then ()->
         # all validations pass
         Ember.Logger.debug "validation is passed"
-        _this.model.set 'phone', '00000'
-        _this.model.save().then (post) ->
-          _this.modelFor('posts').reload()
-          _this.transitionToRoute 'posts.index'
+        _that = _this
+        if (_this.get('isValid'))
+          _obj = _that
+          Ember.Logger.debug _this
+          Ember.Logger.debug "------------- this ----------"
+          _that.model.set 'phone', '00000'
+          _that.model.save().then (post) ->
+            Ember.Logger.debug _that
+            Ember.Logger.debug "------------- this ----------"
+            Ember.Logger.debug "------> post save! ---------"
+            Ember.Logger.debug _obj.modelFor('posts')
+            # _this.modelFor('posts').reload()
+            _obj.transitionToRoute 'posts.index'
+        else
+          Ember.Logger.debug "validate error!!!!!!!!!!!!!!~j?"
+
+      ###
       .catch () ->
         # any validations fail
         _this.set('form_errors', _this.get('errors'))
@@ -82,6 +95,7 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
         Ember.Logger.debug "is valid => " + _this.model.get('isValid')
         Ember.Logger.debug "validation is final step"
         # _this.set('errors', null)
+      ###
 
     cancel: ->
       ptype = @get 'ptype'

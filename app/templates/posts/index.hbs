@@ -37,11 +37,7 @@
 </table>
 
 <div class="uk-clearfix">
-  {{#if session.isAuthenticated}}
     <div class="uk-float-right">{{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}</div>
-  {{else}}
-
-  {{/if}}
 </div>
 
 {{pagination-uk currentPage=page totalPages=15 ptype=ptype}}
