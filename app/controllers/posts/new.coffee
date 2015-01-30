@@ -31,71 +31,55 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
     content:
       presence: true
 
-#  titleValidation: (->
-#    Ember.Logger.debug "title is validation call!!!"
-#    # @validate()
-#  ).observes('title')
-#
-#  nameValidation: (->
-#    Ember.Logger.debug "name validation call!!!"
-#    # @validate()
-#  ).observes('name')
-#
-#  emailValidation: (->
-#    Ember.Logger.debug "email validation call!!!"
-#    # @validate()
-#  ).observes('email')
-#
-#  tagListValidation: (->
-#    Ember.Logger.debug "tag_list validation call!!!"
-#    # @validate()
-#  ).observes('tag_list')
-#
-#  contentValidation: (->
-#    Ember.Logger.debug "content validation call!!!"
-#    # @validate()
-#  ).observes('content')
+  ###
+  titleValidation: (->
+    Ember.Logger.debug "title is validation call!!!"
+    # @validate()
+  ).observes('title')
+
+  nameValidation: (->
+    Ember.Logger.debug "name validation call!!!"
+    # @validate()
+  ).observes('name')
+
+  emailValidation: (->
+    Ember.Logger.debug "email validation call!!!"
+    # @validate()
+  ).observes('email')
+
+  tagListValidation: (->
+    Ember.Logger.debug "tag_list validation call!!!"
+    # @validate()
+  ).observes('tag_list')
+
+  contentValidation: (->
+    Ember.Logger.debug "content validation call!!!"
+    # @validate()
+  ).observes('content')
+  ###
 
   actions:
     validate: () ->
       Ember.Logger.debug "---------- validate ??????? ---------------"
+      _this = @
       @set('form_errors', @get('errors'))
-      @validate()
+      @validate().then () ->
+        Ember.Logger.debug _this.get('isValid')
+        # enable submit button
+      .catch () ->
+        # any validations fail
+        Ember.Logger.debug "= any validations fail ="
+        Ember.Logger.debug _this.get('isValid')
+      .finally () ->
+        Ember.Logger.debug _this.get('isValid')
+        Ember.Logger.debug _this.get('errors')
+
     submit: ->
       _this = @
 
-      @validate().then ()->
-        # all validations pass
-        Ember.Logger.debug "validation is passed"
-        _that = _this
-        if (_this.get('isValid'))
-          _obj = _that
-          Ember.Logger.debug _this
-          Ember.Logger.debug "------------- this ----------"
-          _that.model.set 'phone', '00000'
-          _that.model.save().then (post) ->
-            Ember.Logger.debug _that
-            Ember.Logger.debug "------------- this ----------"
-            Ember.Logger.debug "------> post save! ---------"
-            Ember.Logger.debug _obj.modelFor('posts')
-            # _this.modelFor('posts').reload()
-            _obj.transitionToRoute 'posts.index'
-        else
-          Ember.Logger.debug "validate error!!!!!!!!!!!!!!~j?"
-
-      ###
-      .catch () ->
-        # any validations fail
-        _this.set('form_errors', _this.get('errors'))
-        Ember.Logger.debug "validation is failed"
-        Ember.Logger.debug "--------> errors <-------------------"
-        Ember.Logger.debug _this.get('isValid')
-        Ember.Logger.debug _this.get('errors')
-      .finally () ->
-        Ember.Logger.debug "is valid => " + _this.model.get('isValid')
-        Ember.Logger.debug "validation is final step"
-        # _this.set('errors', null)
-      ###
+      @model.set 'phone', '00000'
+      @get('posts').pushObject(@model).save().then (post) ->
+        _this.transitionToRoute 'posts.index', _this.get('posts')
 
     cancel: ->
       ptype = @get 'ptype'

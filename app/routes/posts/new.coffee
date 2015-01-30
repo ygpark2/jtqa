@@ -9,9 +9,10 @@ PostsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
       @controllerFor('login').set('previousTransition', transition)
   ,
   model: (params, transition, queryParams) ->
-    Ember.Logger.debug "=================================="
+    Ember.Logger.debug "============== model ===================="
     Ember.Logger.debug params
-    Ember.Logger.debug "=================================="
+    Ember.Logger.debug @session.get('id')
+    Ember.Logger.debug "=============== model end ==================="
     # @store.createRecord params.ptype, { type: params.ptype }
     posts = @modelFor('posts')
     @store.createRecord posts.type.typeKey, { category: "default", views: 0, total_comments: 0 }
@@ -24,7 +25,9 @@ PostsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
     { ptype: model.get('constructor.typeKey') }
   ,
   setupController: (controller, model, trans) ->
+    posts = @modelFor('posts')
     controller.set 'model', model
-    controller.set 'ptype', trans.params['posts.new'].ptype
+    controller.set 'posts', posts
+    controller.set 'ptype', posts.type.typeKey
 
 `export default PostsNewRoute`
