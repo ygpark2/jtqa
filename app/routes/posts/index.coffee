@@ -3,7 +3,7 @@
 PostsIndexRoute = Ember.Route.extend
   beforeModel: ->
     @csrf.fetchToken()
-  model: (params) ->
+  model: (params, transition, queryParams) ->
     @modelFor('posts')
   setupController: (controller, model, trans) ->
     controller.set 'model', model

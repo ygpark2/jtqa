@@ -3,7 +3,9 @@
 PostIndexRoute = Ember.Route.extend
   beforeModel: ->
     @csrf.fetchToken()
-  model: (params) ->
+  model: (params, transition, queryParams) ->
+    Ember.Logger.debug " params => "
+    Ember.Logger.debug params
     @modelFor('post')
   afterModel: (post, transition) ->
     view_cnt = post.get('views')

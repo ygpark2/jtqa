@@ -37,6 +37,7 @@ Obj = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
       if key is 'comments'
         Ember.Logger.debug "This is comment key"
       else if key is 'tags'
+        Ember.Logger.debug Ember.get(record, key).mapBy('name').join(",")
         # json['tag_list'] = Ember.get(record, key).mapBy('name').join(",")
       else
         @_super.apply(@, arguments)

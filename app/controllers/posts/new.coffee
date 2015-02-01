@@ -79,6 +79,7 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
 
       @model.set 'phone', '00000'
       @get('posts').pushObject(@model).save().then (post) ->
+        # _this.model.reload()
         _this.transitionToRoute 'posts.index', _this.get('posts')
 
     cancel: ->

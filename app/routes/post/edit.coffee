@@ -8,8 +8,9 @@ PostEditRoute = Ember.Route.extend AuthenticatedRouteMixin,
     unless ( @session.get('isAuthenticated') )
       @controllerFor('login').set('previousTransition', transition)
   ,
-  model: (params) ->
-    @modelFor('post')
+  model: (params, transition, queryParams) ->
+    post = @modelFor('post')
+    post.set('tag_list', post.get('tags').mapBy('name').uniq().toArray().join(", "))
   ,
   setupController: (controller, model, transition) ->
     ptype = transition.params.posts.ptype
