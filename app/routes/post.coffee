@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 PostRoute = Ember.Route.extend
-  beforeModel: (transition) ->
+  beforeModel: (transition, queryParams) ->
     Ember.Logger.debug "---------- beforeModel ----------"
     Ember.Logger.debug transition
     Ember.Logger.debug "---------------------------------"

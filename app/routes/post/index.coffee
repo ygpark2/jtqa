@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 PostIndexRoute = Ember.Route.extend
-  beforeModel: ->
+  beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params, transition, queryParams) ->
     Ember.Logger.debug " params => "

@@ -11,7 +11,7 @@ PostsRoute = Ember.Route.extend
       refreshModel: true
     searchVal:
       refreshModel: true
-  beforeModel: ->
+  beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params) ->
     postType = params.ptype

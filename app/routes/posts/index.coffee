@@ -1,10 +1,14 @@
 `import Ember from "ember"`
 
 PostsIndexRoute = Ember.Route.extend
-  beforeModel: ->
+  beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params, transition, queryParams) ->
-    @modelFor('posts')
+    Ember.Logger.debug transition.resolvedModels.posts.query.page
+    Ember.Logger.debug params
+    Ember.Logger.debug transition.params
+    Ember.Logger.debug "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    @modelFor('posts').reload()
   setupController: (controller, model, trans) ->
     controller.set 'model', model
     controller.set 'ptype', model.type.typeKey

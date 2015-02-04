@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 CommentNewRoute = Ember.Route.extend
-  beforeModel: ->
+  beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
 
   model: (params, transition, queryParams) ->

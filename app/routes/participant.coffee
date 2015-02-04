@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 ParticipantRoute = Ember.Route.extend
-  beforeModel: ->
+  beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   ,
   model: ->

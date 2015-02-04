@@ -2,7 +2,7 @@
 `import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin'`
 
 Obj = Ember.Route.extend ApplicationRouteMixin,
-  beforeModel: (transition)->
+  beforeModel: (transition, queryParams) ->
     @_super(transition)
     Ember.Logger.debug "before model started!!!!!!!!"
     Ember.$.getScript('./javascript/translations/translations-' + CLDR.defaultLanguage + '.js').then ->

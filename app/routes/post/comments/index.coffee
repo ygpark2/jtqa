@@ -1,7 +1,7 @@
 `import Ember from "ember"`
 
 CommentsIndexRoute = Ember.Route.extend
-  beforeModel: ->
+  beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params) ->
     Ember.Logger.debug "======== comment model params ============"
