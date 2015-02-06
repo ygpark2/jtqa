@@ -8,7 +8,7 @@ PostsIndexRoute = Ember.Route.extend
     Ember.Logger.debug params
     Ember.Logger.debug transition.params
     Ember.Logger.debug "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    @modelFor('posts').reload()
+    @modelFor('posts')
   setupController: (controller, model, trans) ->
     controller.set 'model', model
     controller.set 'ptype', model.type.typeKey

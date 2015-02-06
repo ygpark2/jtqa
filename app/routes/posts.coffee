@@ -42,7 +42,7 @@ PostsRoute = Ember.Route.extend
       # console.log @getParentRoute()
       Ember.Logger.debug @get 'queryParams'
       # @store.find @get('ptype'), {page: params.page}
-      Ember.Logger.debug "-----=====++++ query params changed!+++++=======-------"
+      Ember.Logger.debug "-----=====++++ query params changed! +++++=======-------"
       Ember.Logger.debug params
       Ember.Logger.debug "================================="
       @refresh params

@@ -78,9 +78,12 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
       _this = @
 
       @model.set 'phone', '00000'
-      @get('posts').pushObject(@model).save().then (post) ->
-        # _this.model.reload()
-        _this.transitionToRoute 'posts.index', _this.get('posts')
+      @model.save().then (post) ->
+        # _this.get('posts').reload()
+        Ember.Logger.debug _this.get('posts')
+        Ember.Logger.debug post
+        Ember.Logger.debug "-----------xxxxxx------------"
+        _this.transitionTo 'posts.index', post
 
     cancel: ->
       ptype = @get 'ptype'
