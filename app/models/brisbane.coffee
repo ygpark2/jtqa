@@ -6,7 +6,6 @@
 Brisbane = Post.extend
 # Brisbane = Post.extend JungtoValidationsMixin,
   category: DS.attr 'string'
-  tags: DS.hasMany 'tag', {async:true}
   comments: DS.hasMany 'comment', {inverse: 'brisbanePost', async: true}
 
 ###

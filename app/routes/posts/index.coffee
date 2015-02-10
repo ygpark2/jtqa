@@ -4,8 +4,8 @@ PostsIndexRoute = Ember.Route.extend
   beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params, transition, queryParams) ->
-    Ember.Logger.debug transition.resolvedModels.posts.query.page
-    Ember.Logger.debug params
+    # Ember.Logger.debug transition.resolvedModels.posts.query.page
+    # Ember.Logger.debug params
     Ember.Logger.debug transition.params
     Ember.Logger.debug "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     @modelFor('posts')

@@ -4,8 +4,6 @@ PostIndexRoute = Ember.Route.extend
   beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params, transition, queryParams) ->
-    Ember.Logger.debug " params => "
-    Ember.Logger.debug params
     @modelFor('post')
   afterModel: (post, transition) ->
     view_cnt = post.get('views')
@@ -17,22 +15,12 @@ PostIndexRoute = Ember.Route.extend
 
     comment = @store.createRecord 'comment', {post: model}
     controller.set 'comment', comment
-
     controller.set 'model', model
     controller.set 'ptype', ptype
 
-    Ember.Logger.debug "--------- setupController ------------"
-    # Ember.Logger.debug model.get('comments').createRecord
-    # Ember.Logger.debug comment
-    # Ember.Logger.debug model.type.typeKey
-    Ember.Logger.debug "---------- setupController ------------"
   serialize: (model, params) ->
-    Ember.Logger.debug "--------- serialize ------------"
-    Ember.Logger.debug model
-    # Ember.Logger.debug model.type.typeKey
-    Ember.Logger.debug "--------------------------------"
-    Ember.Logger.debug params
     { ptype: model.type.typeKey, pid: params.pid }
+
   actions:
     commentSave: ->
       comment = @controller.get 'comment'

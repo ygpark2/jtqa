@@ -13,7 +13,7 @@ PostsRoute = Ember.Route.extend
       refreshModel: true
   beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
-  model: (params) ->
+  model: (params, transition, queryParams) ->
     postType = params.ptype
     Ember.Logger.debug "======== posts model params ============"
     Ember.Logger.debug params
