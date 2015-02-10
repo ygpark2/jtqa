@@ -9,7 +9,7 @@ PostEditRoute = Ember.Route.extend AuthenticatedRouteMixin,
       @controllerFor('login').set('previousTransition', transition)
   ,
   model: (params, transition, queryParams) ->
-    post = @modelFor('post').reload()
+    post = @modelFor('post')
     post.set('tag_list', post.get('tags').mapBy('name').uniq().toArray().join(", "))
   ,
   setupController: (controller, model, transition) ->

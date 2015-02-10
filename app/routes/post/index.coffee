@@ -4,12 +4,12 @@ PostIndexRoute = Ember.Route.extend
   beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params, transition, queryParams) ->
-    @modelFor('post')
+    @modelFor('post').reload()
   afterModel: (post, transition) ->
     view_cnt = post.get('views')
-    post.set('views', view_cnt + 1)
-    post.save().then (post) ->
-      Ember.Logger.debug "view count increased"
+    # post.set('views', view_cnt + 1)
+    # post.save().then (post) ->
+    #   Ember.Logger.debug "view count increased"
   setupController: (controller, model, transition) ->
     ptype = transition.params.posts.ptype
 
