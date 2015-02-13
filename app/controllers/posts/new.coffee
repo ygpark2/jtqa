@@ -82,8 +82,9 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
         # _this.get('posts').reload()
         Ember.Logger.debug _this.get('posts')
         Ember.Logger.debug post
+        Ember.Logger.debug post.get('id')
         Ember.Logger.debug "-----------xxxxxx------------"
-        _this.transitionToRoute 'posts.index', post
+        _this.transitionToRoute 'post.index', post
 
     cancel: ->
       ptype = @get 'ptype'
