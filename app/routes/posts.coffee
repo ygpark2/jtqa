@@ -17,21 +17,21 @@ PostsRoute = Ember.Route.extend
     postType = params.ptype
     Ember.Logger.debug "======== posts model params ============"
     Ember.Logger.debug params
+    Ember.Logger.debug "========================================"
     copy_params = Ember.copy(params)
-    Ember.Logger.debug "========"
     delete copy_params['ptype']
-    Ember.Logger.debug "ptype => " + postType
+    Ember.Logger.debug "ptype ======> " + postType + " <========"
     Ember.Logger.debug copy_params
     Ember.Logger.debug "======== posts model params ============"
     @store.find postType, copy_params
   # setupController: (controller, model, params) ->
   #   @controllerFor('posts.index').set('data', model);
   #   @_super(controller, model)
-  #   console.log "=============== setupController ==================="
-  #   console.log controller
-  #   console.log model
-  #   console.log params
-  #   console.log "=============== setupController ==================="
+  #   Ember.Logger.debug "=============== setupController ==================="
+  #   Ember.Logger.debug controller
+  #   Ember.Logger.debug model
+  #   Ember.Logger.debug params
+  #   Ember.Logger.debug "=============== setupController ==================="
   #   controller.set 'model', model
   #   controller.set 'data', data
   #   controller.set 'page', 1
@@ -47,9 +47,9 @@ PostsRoute = Ember.Route.extend
       Ember.Logger.debug "================================="
       @refresh params
   # renderTemplate: (controller, model) ->
-  #   console.log "=============== render ==================="
-  #   console.log controller
-  #   console.log "=============== render ==================="
+  #   Ember.Logger.debug "=============== render ==================="
+  #   Ember.Logger.debug controller
+  #   Ember.Logger.debug "=============== render ==================="
   #   @render()
   #   @render @get('postsTemplate'),
   #     controller: @get('postsIndexController')

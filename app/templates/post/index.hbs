@@ -11,9 +11,10 @@
     <hr class="uk-article-divider">
     <div class="uk-clearfix">
         <div class="uk-float-right">
-            {{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}
             {{#link-to 'posts.index' ptype class="uk-button"}} 목록 {{/link-to}}
+            {{#link-to 'post.delete' model class="uk-button"}} 삭제 {{/link-to}}
             {{#link-to 'post.edit' model class="uk-button"}} 수정 {{/link-to}}
+            {{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}
         </div>
     </div>
 </article>

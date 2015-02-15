@@ -39,6 +39,7 @@ Router.map(function() {
         this.route('new');
         this.resource('post', { path: ':pid' }, function() {
             this.route('edit');
+            this.route('delete');
             this.resource('comments', function() {
                 this.route('new');
             });

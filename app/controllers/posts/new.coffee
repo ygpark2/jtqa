@@ -18,7 +18,7 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
   validations:
     title:
       presence: true
-      length: { minimum: 5, maximum: 10 }
+      length: { minimum: 5, maximum: 80 }
     name:
       presence: true
       length: { minimum: 5 }
@@ -83,8 +83,11 @@ Obj = Ember.ObjectController.extend EmberValidations.Mixin,
         Ember.Logger.debug _this.get('posts')
         Ember.Logger.debug post
         Ember.Logger.debug post.get('id')
+        route = _this.container.lookup("route:posts") # use the name of route you want to refresh
+        route.refresh()
         Ember.Logger.debug "-----------xxxxxx------------"
-        _this.transitionToRoute 'post.index', post
+        # _this.store.unloadAll(post.get('ptype'));
+        _this.transitionToRoute 'post.index', post.get('id')
 
     cancel: ->
       ptype = @get 'ptype'

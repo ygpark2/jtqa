@@ -42,13 +42,13 @@ Obj = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
       else
         @_super.apply(@, arguments)
 
-  extractSave: (store, type, payload, id, requestType) ->
+  # extractSave: (store, type, payload, id, requestType) ->
 
-    Ember.Logger.debug "-------- payload ----------------"
-    Ember.Logger.debug payload
-    Ember.Logger.debug "--------- payload ---------------"
-    @_super(store, type, payload, id, requestType)
-    Ember.Logger.debug "--- after payload ----"
+  #   Ember.Logger.debug "-------- payload ----------------"
+  #   Ember.Logger.debug payload
+  #   Ember.Logger.debug "--------- payload ---------------"
+  #   @_super(store, type, payload, id, requestType)
+  #   Ember.Logger.debug "--- after payload ----"
 
   extractMeta: (store, type, payload)->
     metadata = {}
