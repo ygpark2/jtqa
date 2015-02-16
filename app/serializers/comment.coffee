@@ -32,6 +32,7 @@ Obj = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
     else
       Ember.Logger.debug "else is none !!!!!!!"
       json['post'] = Ember.get(belongsTo, 'id')
+      json['type'] = key
 
     Ember.Logger.debug "-------------------------"
     Ember.Logger.debug json
