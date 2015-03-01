@@ -1,6 +1,7 @@
 `import DS from "ember-data"`
 
 Post = DS.Model.extend
+  user_id: DS.attr 'number'
   title: DS.attr 'string'
   content: DS.attr 'string'
   name: DS.attr 'string'

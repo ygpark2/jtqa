@@ -43,24 +43,23 @@ Obj = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
         @_super.apply(@, arguments)
 
   # extractSave: (store, type, payload, id, requestType) ->
-
   #   Ember.Logger.debug "-------- payload ----------------"
   #   Ember.Logger.debug payload
   #   Ember.Logger.debug "--------- payload ---------------"
   #   @_super(store, type, payload, id, requestType)
   #   Ember.Logger.debug "--- after payload ----"
 
-  extractMeta: (store, type, payload)->
-    metadata = {}
-    Em.$.each payload, (key, value)->
-      Ember.Logger.debug "each ---------------------"
-      Ember.Logger.debug type
-      Ember.Logger.debug type.typeKey
-      Ember.Logger.debug "------------------ end each"
-      if (key != type.typeKey && key != type.typeKey.pluralize())
-        metadata[key] = value
-        delete payload[key]
-    store.metaForType(type, metadata)
+  # extractMeta: (store, type, payload)->
+  #   metadata = {}
+  #   Em.$.each payload, (key, value)->
+  #     Ember.Logger.debug "--------------- extract meta each ---------------"
+  #     Ember.Logger.debug type
+  #     Ember.Logger.debug type.typeKey
+  #     Ember.Logger.debug "--------------- extract meta end each -----------------"
+  #     if (key != type.typeKey && key != type.typeKey.pluralize())
+  #       metadata[key] = value
+  #       delete payload[key]
+  #   store.metaForType(type, metadata)
 
   keyForAttribute: (attr)->
     decamelize(attr)

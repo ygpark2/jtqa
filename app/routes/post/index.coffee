@@ -13,7 +13,7 @@ PostIndexRoute = Ember.Route.extend
   setupController: (controller, model, transition) ->
     ptype = transition.params.posts.ptype
 
-    comment = @store.createRecord 'comment', {post: model}
+    comment = @store.createRecord 'comment', {klass: ptype}
     controller.set 'comment', comment
     controller.set 'model', model
     controller.set 'ptype', ptype
@@ -23,17 +23,15 @@ PostIndexRoute = Ember.Route.extend
 
   actions:
     commentSave: ->
+      _this = @
       comment = @controller.get 'comment'
-      Ember.Logger.debug "--------------- commentSave ---------------------"
-      Ember.Logger.debug @controller.get('model').id
-      Ember.Logger.debug "---------------- commentSave --------------------"
+      ptype = @controller.get 'ptype'
       @currentModel.get('comments').pushObject(comment).save().then (post) ->
         comment_cnt = post.get('total_comments')
         post.set('total_comments', comment_cnt + 1)
-        post.save().then (post) ->
-          Ember.Logger.debug "view count increased"
-          @transitionTo 'post.index', post
+        _this.controller.set 'comment', _this.store.createRecord 'comment', {klass: ptype}
+        _this.refresh()
     commentCancel: ->
-      @transitionTo 'participants.index'
+      @transitionTo 'posts.index'
 
 `export default PostIndexRoute`

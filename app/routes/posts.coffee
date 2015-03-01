@@ -1,29 +1,29 @@
 `import Ember from "ember"`
 
 PostsRoute = Ember.Route.extend
-  queryParams:
-    page:
-      refreshModel: true,
-      replace: true
-    pageSize:
-      refreshModel: true
-    searchKey:
-      refreshModel: true
-    searchVal:
-      refreshModel: true
+  # queryParams:
+  #   page:
+  #     refreshModel: true,
+  #     replace: true
+  #   pageSize:
+  #     refreshModel: true
+  #   searchKey:
+  #     refreshModel: true
+  #   searchVal:
+  #     refreshModel: true
   beforeModel: (transition, queryParams)->
     @csrf.fetchToken()
   model: (params, transition, queryParams) ->
-    postType = params.ptype
+    # postType = params.ptype
     Ember.Logger.debug "======== posts model params ============"
     Ember.Logger.debug params
     Ember.Logger.debug "========================================"
-    copy_params = Ember.copy(params)
-    delete copy_params['ptype']
-    Ember.Logger.debug "ptype ======> " + postType + " <========"
-    Ember.Logger.debug copy_params
-    Ember.Logger.debug "======== posts model params ============"
-    @store.find postType, copy_params
+    # copy_params = Ember.copy(params)
+    # delete copy_params['ptype']
+    # Ember.Logger.debug "ptype ======> " + postType + " <========"
+    # Ember.Logger.debug copy_params
+    # Ember.Logger.debug "======== posts model params ============"
+    # @store.find postType, copy_params
   # setupController: (controller, model, params) ->
   #   @controllerFor('posts.index').set('data', model);
   #   @_super(controller, model)

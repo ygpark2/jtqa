@@ -23,14 +23,14 @@
         </tr>
     </thead>
     <tbody>
-        {{#each post in model}}
+        {{#each this}}
         <tr>
-            <td>{{post.id}}</td>
-            <td>{{#link-to 'post.index' post.id }}{{post.title}}{{/link-to}}</td>
-            <td>{{post.total_comments}}</td>
-            <td>{{post.views}}</td>
-            <td>{{post.name}}</td>
-            <td>{{date-format post.created_at 'MMMM Do, YYYY [at] h:mm'}}</td>
+            <td>{{this.id}}</td>
+            <td>{{#link-to 'post.index' this.id }}{{this.title}}{{/link-to}}</td>
+            <td>{{this.total_comments}}</td>
+            <td>{{this.views}}</td>
+            <td>{{this.name}}</td>
+            <td>{{date-format this.created_at 'MMMM Do, YYYY [at] h:mm'}}</td>
         </tr>
         {{/each}}
     </tbody>
@@ -40,7 +40,4 @@
     <div class="uk-float-right">{{#link-to 'posts.new' ptype class="uk-button"}} 글쓰기 {{/link-to}}</div>
 </div>
 
-{{pagination-uk currentPage=page totalPages=15 ptype=ptype}}
-
-<!--
--->
+{{page-numbers content=content totalPages=15 showFL=true}}

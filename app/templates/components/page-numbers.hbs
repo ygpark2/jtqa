@@ -1,0 +1,30 @@
+<ul {{bind-attr class=':uk-pagination'}}>
+  <li {{bind-attr class=':previous canStepBackward:uk-disabled'}}>
+    {{#if canStepBackward}}
+      <a {{action "incrementPage" -1}}> <i class="uk-icon-angle-double-left"></i> </a>
+    {{else}}
+      <span><i class="uk-icon-angle-double-left"></i></span>
+    {{/if}}
+  </li>
+
+  {{#each item in pageItems}}
+    {{#if item.dots}}
+      <li><span> &hellip; </span></li>
+    {{/if}}
+    <li {{bind-attr class='item.current:uk-active'}}>
+      {{#if item.current}}
+        <span>{{item.page}}</span>
+      {{else}}
+        <a {{action "pageClicked" item.page}}>{{item.page}}</a>
+      {{/if}}
+    </li>
+  {{/each}}
+
+  <li {{bind-attr class=':next canStepForward:uk-disabled'}}>
+    {{#if canStepForward}}
+      <a {{action "incrementPage" 1}}> <i class="uk-icon-angle-double-right"></i> </a>
+    {{else}}
+      <span><i class="uk-icon-angle-double-right"></i></span>
+    {{/if}}
+  </li>
+</ul>

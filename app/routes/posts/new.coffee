@@ -15,7 +15,7 @@ PostsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
     Ember.Logger.debug "=============== model end ==================="
     # @store.createRecord params.ptype, { type: params.ptype }
     posts = @modelFor('posts')
-    @store.createRecord posts.type.typeKey, { category: "default", views: 0, total_comments: 0 }
+    @store.createRecord transition.params.posts.ptype, { category: "default", views: 0, total_comments: 0 }
   ,
   serialize: (model) ->
     Ember.Logger.debug "--------- serialize ------------"
@@ -24,10 +24,10 @@ PostsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
     Ember.Logger.debug model
     { ptype: model.get('constructor.typeKey') }
   ,
-  setupController: (controller, model, trans) ->
+  setupController: (controller, model, transition) ->
     posts = @modelFor('posts')
     controller.set 'model', model
     controller.set 'posts', posts
-    controller.set 'ptype', posts.type.typeKey
+    controller.set 'ptype', transition.params.posts.ptype
 
 `export default PostsNewRoute`
